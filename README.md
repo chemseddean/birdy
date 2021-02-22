@@ -23,6 +23,6 @@ Twitter clone with MERN stack and SQLite
    <h2>[ ] Posts</h2>
    <h2>[ ] Comments</h2>
    <h2>[ ] Friends</h2>
-        <h3>Add friend</h3>
-        <h3>Delete friend</h3>
+        <h3>[ ] Add friend</h3>
+        <h3>[ ] Delete friend</h3>
 
