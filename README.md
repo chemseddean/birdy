@@ -4,6 +4,8 @@ Twitter clone with MERN stack and SQLite
 # Features
   [o] **Register users**\n
        [] Post request to api/users
+       
+       
   [] **Log in users**
        [] Post request to api/auth
   [] **User profile**
