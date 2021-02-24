@@ -4,7 +4,7 @@ Twitter clone with MERN stack and SQLite
 <h1>Features</h1>
    <h2>Users</h2>
    <h3>[X] Register users</h3> 
-   <h4>[ ] Post request to api/users</h4>
+   <h4>[X] Post request to api/users</h4>
    <h3>[ ] Log in users </h3>
    <h4>[ ] Post request to api/auth</h4>
    
