@@ -8,7 +8,7 @@ const router = express.Router();
 const joiUserSchema = Joi.object({
     id: Joi.number().required(),
     firstName: Joi.string().required(),
-    familyName: Joi.string().required(),
+    lastName: Joi.string().required(),
     email: Joi.string().email(),
     password: Joi.string().min(8)
 })
