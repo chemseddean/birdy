@@ -8,7 +8,7 @@ Content-Type: application/json
     "id": 12355,
     "email": "chemssou@gmail.com",
     "firstName": "chemssou",
-    "familyName": "dzjocker",
+    "lastName": "bensafia",
     "password": "12345677"
 }
 
