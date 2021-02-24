@@ -1,7 +1,7 @@
 const express = require('express'); 
 const ejs = require('ejs')
 const app = express();
-const db_connect = require('./database')
+const db_connect = require('./config/db')
 
 // all environments
 app.use(express.json())
