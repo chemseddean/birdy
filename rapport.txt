@@ -1,0 +1,1 @@
+Pour faire la validation des champs on a opte pour le module 'Joi' qui permets de faire le meme job que 'express-validator' mais plus tendance.
