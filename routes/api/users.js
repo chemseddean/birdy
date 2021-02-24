@@ -10,7 +10,7 @@ const joiUserSchema = Joi.object({
     firstName: Joi.string().required(),
     familyName: Joi.string().required(),
     email: Joi.string().email(),
-    password: Joi.string().min(8),
+    password: Joi.string().min(8)
 })
 
 router.post('/', async (req, res) => {

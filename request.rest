@@ -1,13 +1,15 @@
 
-GET http://localhost:3000/
+GET http://localhost:5000/
 ###
-POST http://localhost:3000/api/users
+POST http://localhost:5000/api/users
 Content-Type: application/json
 
 {
     "id": 12355,
-    "email": "anesboz@gmail.com",
-    "firstName": "anes",
-    "familyName": "boz",
-    "password": "monpassword"
+    "email": "chemssou@gmail.com",
+    "firstName": "chemssou",
+    "familyName": "dzjocker",
+    "password": "12345677"
 }
+
+###
