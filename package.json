@@ -1,17 +1,16 @@
 {
   "name": "birdy",
   "version": "1.0.0",
-  "description": "",
+  "description": "Twitter clone with MERN stack and SQLite",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "server": "nodemon server"
+    "startDev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chemseddean/birdy.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -19,16 +18,10 @@
   },
   "homepage": "https://github.com/chemseddean/birdy#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "config": "^3.3.3",
+    "bcrypt": "^5.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-validator": "^6.9.2",
-    "gravatar": "^1.8.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.17",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+    "joi": "^17.4.0",
+    "mongoose": "^5.11.18"
   }
 }

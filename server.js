@@ -1,15 +1,36 @@
 const express = require('express'); 
+const ejs = require('ejs')
 const app = express();
+const db_connect = require('./database')
 
+// all environments
+app.use(express.json())
+app.set('view engine', 'ejs');
 
-//Init Middleware
-app.use(express.json({extended: false}))
+// actions
+app.get('/', (req, res) => {
+    res.render('index')
+})
 
-app.get('/', (req, res) => res.send('API running'));
-
-//routes
+// routes
 app.use('/api/users', require('./routes/api/users.js'))
 
-const PORT = process.env.PORT || 5000; 
+// connect to database
+db_connect()
+.then(() => {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, (error) => {
+        if (!!error) {
+            console.log('Something went wrong ...');
+        } else {
+            console.log(`Server started on port ${PORT}, and DataBase connected`)
+        }
+    })
+})
+.catch((err) => console.log(err))
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));  
+/*
+to run server write in terminal :
+"npm run startDev" (witch is costomised in package.json)
+or simply write manually "nodemon server.js"
+*/

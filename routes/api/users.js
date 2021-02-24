@@ -1,72 +1,40 @@
 const express = require('express');
-const router = express.Router();
-const {check, validationResult} = require('express-validator')
+const bcrypt = require('bcrypt')
+const Joi = require('Joi')
 const User = require('../../models/User')
-const bcrypt = require('bcryptjs')
-// const jwt = require('jsonwebtoken')
-// const config = require('config')
-const gravatar = require('gravatar');
+const router = express.Router();
 
-// @route   POST api/users
-// @desc    Register user
-// @access  Public 
-router.post(
-    '/',
-    [
-    check('id', 'ID is required').notEmpty(),
-    check('firstName', 'First name is required').notEmpty(),
-    check('lastName', 'Last name is required').notEmpty(),
-    check('email', 'Email is required').notEmpty(),
-    check('password', 'Please enter a password with 6 or more characters').isLength({min: 6})
-    ],
 
-    async (req, res) => {
-    const errors = validationResult(req) 
-    
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array() })
+const joiUserSchema = Joi.object({
+    id: Joi.number().required(),
+    firstName: Joi.string().required(),
+    familyName: Joi.string().required(),
+    email: Joi.string().email(),
+    password: Joi.string().min(8),
+})
+
+router.post('/', async (req, res) => {
+    // validation schema 
+    const result = await joiUserSchema.validateAsync(req.body)
+    if (result.error) {
+        res.status(400).send(result.error.details[0].message)
+        return
     }
-    
-    const {id, firstName, lastName, email, password} = req.body
-
-    try{
-        console.log(id, firstName, lastName, email, password)
-        // //Encrypt password
-        // const salt = await bcrypt.genSalt(10)
-        
-        // default avatar for user
-        const avatar = gravatar.url(email, {
-            s: '200', //default size
-            r: 'pg',  //rating 
-            d: 'mm'   //default avatar
-        })
-
-        user = new User({
-            id, 
-            firstName,
-            lastName,
-            email,
-            avatar, 
-            password
-        })
-
-        await user.save()
-
-        //hash the password
-        user.password = await bcrypt.hash(password, 10)
-
-        /* 
-            Add user to database
-
-        */
-
-       return res.status(201).json(req.body)
-
-    } catch (e){
-        console.error(e.message)
-        res.status(500).send('Server error')
+    var content = req.body
+    const hashedpassword = await bcrypt.hash(req.body.password, 10)
+    content.password = hashedpassword
+    const newUser = new User(content)
+    try {
+        await newUser.save()
+    } catch (error) {
+        console.log('probleme au niveau de save', error)
     }
-
+    ////// add user to data base
+    res.status(201).send(newUser)
 });
 
+
+router.get('/', (req, res) => {
+    res.send('okay ca marche')
+})
 module.exports = router;
