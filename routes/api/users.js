@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     try {
         await newUser.save()
     } catch (error) {
-        console.log('probleme au niveau de save', error)
+        console.log('Server error', error)
     }
     ////// add user to data base
     res.status(201).send(newUser)
