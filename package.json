@@ -4,7 +4,7 @@
   "description": "Twitter clone with MERN stack and SQLite",
   "main": "server.js",
   "scripts": {
-    "startDev": "nodemon server.js"
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
