@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:birdy}/DB/Birdy.db",
+            "name": "birdy"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
