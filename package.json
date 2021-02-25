@@ -4,6 +4,7 @@
   "description": "Twitter clone with MERN stack and SQLite",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server",
     "server": "nodemon server.js"
   },
   "repository": {
@@ -23,6 +24,7 @@
     "express": "^4.17.1",
     "joi": "^17.4.0",
     "mongoose": "^5.11.18",
+    "nodemon": "^2.0.7",
     "sqlite3": "^5.0.2"
   }
 }
