@@ -7,11 +7,12 @@ const db = new sqlite3.Database('./DB/birdy.db', (error) => {
     }else{
       console.log('Successfuly connected to Birdy db.');
       let sql = `CREATE TABLE IF NOT EXISTS users(
-        id VARCHAR(255) PRIMARY KEY,
+        username VARCHAR(255) PRIMARY KEY,
         firstName VARCHAR(255) NOT NULL,
         lastName VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        password VARCHAR(255) NOT NULL)`
+        email VARCHAR(255) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL,
+        CONSTRAINT email_unique UNIQUE (email))`
 
       db.run(sql, (error) => {
         if (error){
