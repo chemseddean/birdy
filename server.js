@@ -2,6 +2,10 @@ const express = require('express');
 const ejs = require('ejs')
 const app = express();
 //const db_connect = require('./config/db')
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 // all environments
 app.use(express.json())
