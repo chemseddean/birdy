@@ -1,10 +1,11 @@
 const express = require('express'); 
 const ejs = require('ejs')
 const app = express();
-//const db_connect = require('./config/db')
-var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
+
+// some const greped from the process environment
+// or take those default values
+
 
 
 // all environments
@@ -13,14 +14,13 @@ app.set('view engine', 'ejs');
 
 // actions
 app.get('/', (req, res) => {
-    res.render('index')
+    res.send('Hello World')
 })
 
 // routes
 app.use('/api/users', require('./routes/api/users.js'))
 
-const PORT = process.env.PORT || 5000; 
-
+PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 
