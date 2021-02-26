@@ -3,8 +3,8 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "database": "${workspaceFolder:birdy}/DB/Birdy.db",
-            "name": "birdy"
+            "name": "birdy",
+            "database": "${workspaceFolder:birdy}/DB/birdy.db"
         }
     ],
     "sqltools.useNodeRuntime": true
