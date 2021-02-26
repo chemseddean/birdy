@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/api/users', require('./routes/api/users.js'))
+app.use('/api/posts', require('./routes/api/posts.js'))
 
 PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
