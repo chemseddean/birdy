@@ -7,7 +7,6 @@ const app = express();
 // or take those default values
 
 
-
 // all environments
 app.use(express.json())
 app.set('view engine', 'ejs');
