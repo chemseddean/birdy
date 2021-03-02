@@ -140,14 +140,15 @@ router.post('/register', ses.redirectDashboard,  async (req, res) => {
     // creation d'une instance User
     const newUser = new User(user)
 
+    //Create user 
     var insert = 'INSERT INTO users (username, firstName, lastName, email, password) VALUES (?,?,?,?,?)'
     var params = [user.username, user.firstName, user.lastName, user.email, user.password]
-    db.run(insert, params, (error) => {
+    db.run(insert, params, async (error, candidate) => {
         if (error) {
             console.error('PROBLEME SQL ', error.message)
             return
         } else {
-            req.session.userId = candidate.username
+            //req.session.userId = candidate.username
             res.status(201).send(user)
         }
     })
