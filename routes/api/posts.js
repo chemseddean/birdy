@@ -4,7 +4,6 @@ const Joi = require('joi')
 
 const Post = require('../../models/Post')
 const User = require('../../models/User')
-const auth = require('../../middleware/auth')
 
 const joiUserSchema = Joi.object({
     username: Joi.string().required(),

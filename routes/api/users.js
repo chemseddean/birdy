@@ -142,7 +142,6 @@ router.post('/register', ses.redirectDashboard,  async (req, res) => {
 
     var insert = 'INSERT INTO users (username, firstName, lastName, email, password) VALUES (?,?,?,?,?)'
     var params = [user.username, user.firstName, user.lastName, user.email, user.password]
-<<<<<<< Updated upstream
     db.run(insert, params, (error) => {
         if (error) {
             console.error('PROBLEME SQL ', error.message)
@@ -152,23 +151,22 @@ router.post('/register', ses.redirectDashboard,  async (req, res) => {
             res.status(201).send(user)
         }
     })
-=======
-        db.run(insert, params, (error)=>{
-            if(error){
-                //res.status(400).json({"Error": error.message})
-                console.error(error.message)
-                return
-            }
-        })
-        res.json({
-            "message": "User created",
-            "user": user,
-            "user_id": this.lastID
-        })
-        newUser.save()
-    } catch (error) {
-        res.send("Server error")
-    }  
+    //     db.run(insert, params, (error)=>{
+    //         if(error){
+    //             //res.status(400).json({"Error": error.message})
+    //             console.error(error.message)
+    //             return
+    //         }
+    //     })
+    //     res.json({
+    //         "message": "User created",
+    //         "user": user,
+    //         "user_id": this.lastID
+    //     })
+    //     newUser.save()
+    // } catch (error) {
+    //     res.send("Server error")
+    // }  
 });
 
 
@@ -177,7 +175,6 @@ router.post('/register', ses.redirectDashboard,  async (req, res) => {
 // @route Public
 router.get('/:username', (req, res) => {
     res.send('okay ca marche')
->>>>>>> Stashed changes
 })
 
 router.post('/logout', ses.redirectWelcome, async (req, res) => {
