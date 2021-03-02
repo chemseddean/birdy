@@ -1,12 +1,13 @@
-# Birdy 
+# Birdy
+
 Twitter clone with MERN stack and SQLite
 
 <h1>Features</h1>
    <h2>Users</h2>
    <h3>[X] Register users</h3> 
    <h4>[X] Post request to api/users</h4>
-   <h3>[ ] Log in users </h3>
-   <h4>[ ] Post request to api/auth</h4>
+   <h3>[X] Log in users </h3>
+   <h4>[X] Post request to api/users/login</h4>
    
    <h2>User profile</h2>
    <h3>[ ]Get current user profile</h3> 
@@ -18,11 +19,10 @@ Twitter clone with MERN stack and SQLite
    <h3>[ ] Send messages</h3>
    <h3>[ ] Delete messages</h3>
    <h3>[ ] Search messages</h3>
-   <h4>[ ] Implemented with Autocomplete</h4> 
+   <h4>[ ] Implemented with Autocomplete</h4>
 
    <h2>[ ] Posts</h2>
    <h2>[ ] Comments</h2>
    <h2>[ ] Friends</h2>
         <h3>[ ] Add friend</h3>
         <h3>[ ] Delete friend</h3>
-
