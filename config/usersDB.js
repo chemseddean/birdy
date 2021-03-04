@@ -13,16 +13,33 @@ const db = new sqlite3.Database('./DB/birdy.db', (error) => {
         email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
         CONSTRAINT email_unique UNIQUE (email))`
+      
+      let friends = `CREATE TABLE IF NOT EXISTS friends(
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          username1 VARCHAR(255) NOT NULL,
+          username2 VARCHAR(255) NOT NULL,
+          FOREIGN KEY (username1) REFERENCES users(username),
+          FOREIGN KEY (username2) REFERENCES users(username))`
 
       db.run(sql, (error) => {
         if (error){
           //Table already created
           console.error(error.message)
         }else{
-          console.log("Birdy db successfuly created")
+          console.log("Users table successfuly created")
         }
       })
-    }
+      db.run(friends, (error) => {
+        if (error){
+          //Table already created
+          console.error(error.message)
+        }else{
+          console.log("Friends table successfuly created")
+        }
+      })
+    
+    
+  }
   });
 
 module.exports = db
