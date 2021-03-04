@@ -8,6 +8,8 @@ Twitter clone with MERN stack and SQLite
    <h4>[X] Post request to api/users</h4>
    <h3>[X] Log in users </h3>
    <h4>[X] Post request to api/users/login</h4>
+   <h3>[X] Add friend </h3> 
+   <h4>[X] Post request to api/users/add_friend</h4>
    
    <h2>User profile</h2>
    <h3>[ ]Get current user profile</h3> 
