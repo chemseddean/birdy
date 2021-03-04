@@ -28,14 +28,15 @@ Content-Type: application/json
     "email": "chemsou@gmail.com",
     "password": "12345677"
 }
-<<<<<<< Updated upstream
 ###
 
 # print session informations
 GET http://localhost:5000/api/users/print-session
-=======
-###Posts
-GET http://localhost:5000/api/posts
 ###
-POST http://localhost:5000/api/posts
->>>>>>> Stashed changes
+#Add friend
+POST http://localhost:5000/api/users/add_friend
+Content-Type: application/json
+
+{
+    "username": "chems01"
+}
