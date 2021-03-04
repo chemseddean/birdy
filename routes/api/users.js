@@ -10,6 +10,7 @@ const session = require('express-session')
 //const db_connect = require('./config/db')
 var bodyParser = require("body-parser");
 
+const HOME = '../../views/index'
 // to acess to request body
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
@@ -78,7 +79,7 @@ router.post('/login', ses.redirectDashboard, (req, res) => {
     const { email, password } = req.body
     var selectUser = `SELECT * FROM Users u WHERE u.email = '${email}'`
     db.get(selectUser, [], async (error, candidate) => {
-        console.log('heya')
+        //console.log('heya')
         if (error) {
             console.log('PROBLEME SQL login', error.message)
             return
@@ -178,14 +179,40 @@ router.get('/:username', (req, res) => {
     res.send('okay ca marche')
 })
 
-router.post('/logout', ses.redirectWelcome, async (req, res) => {
+router.delete('/logout', 
+ses.redirectWelcome,
+async (req, res) => {
     req.session.destroy(err => {
         if(err) {
+            
             return res.redirect(DASHBOARD)
         }
     })
     res.clearCookie(SESS_NAME)
     return res.redirect(HOME)
+})
+
+
+router.post('/add_friend',
+async (req,res) => {
+    var friend = 'INSERT INTO friends (username1, username2) VALUES (?,?)'
+    var params = [req.session.userId, req.body.username]
+    try {
+        db.run(friend, 
+            params, 
+            async (error, candidate) => {
+            if (error) {
+                console.error('PROBLEME SQL ', error.message)
+                return
+            } else {
+                //req.session.userId = candidate.username
+                res.status(201).send({msg: "Friend added !"})
+            }
+        })
+    } catch (error) {
+        
+    }
+    //console.log(req.body.username, req.session.userId)
 })
 
 module.exports = router
