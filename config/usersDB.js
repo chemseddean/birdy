@@ -12,6 +12,7 @@ const db = new sqlite3.Database('./DB/birdy.db', (error) => {
         lastName VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
+        CONSTRAINT username_unique UNIQUE (username)
         CONSTRAINT email_unique UNIQUE (email))`
       
       let friends = `CREATE TABLE IF NOT EXISTS friends(
