@@ -1,7 +1,10 @@
 const express = require('express'); 
 const ejs = require('ejs')
 const app = express();
+const ses = require('./middleware/session')
+require('dotenv').config()
 
+app.set('view engine', 'ejs');
 
 // some const greped from the process environment
 // or take those default values
@@ -11,10 +14,16 @@ const app = express();
 app.use(express.json())
 app.set('view engine', 'ejs');
 
-// actions
+// WELCOME PAGE
 app.get('/', (req, res) => {
-    res.send('Hello World')
+    return res.render('welcome');
 })
+
+// DASHBOARD
+app.get('/dashboard', ses.ifOfflineRedirectWelcome, (req, res) => {
+    return res.render('dash');
+})
+
 
 // routes
 app.use('/api/users', require('./routes/api/users.js'))

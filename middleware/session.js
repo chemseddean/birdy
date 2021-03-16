@@ -1,23 +1,35 @@
-const HOME = '../../views/index'
-const DASHBOARD = '../../views/dash' // ???
+require('dotenv').config()
+const jwt = require('jsonwebtoken')
 
 // if  NOT authentified redirect to Welcome page
-const redirectWelcome = (req, res, next) => {
-    if (!req.session.userId) {
-        res.render(HOME)
-    } else {
+const ifOfflineRedirectWelcome = (req, res, next) => {
+    // si y a pas de token 
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.redirect(process.env.WELCOME_PAGE)
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return res.redirect(process.env.WELCOME_PAGE)
+        req.user = user
         next()
-    }
+    })
 }
 
-
 // if  already authentified redirect to Dashboard
-const redirectDashboard = (req, res, next) => {
-    if (req.session.userId) {
-        res.redirect(DASHBOARD)
-    } else {
-        next()
-    }
+const ifOnlineRedirectDashboard = (req, res, next) => {
+    // console.log('dakhel');
+    // si y a pas de token 
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return next()
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) return next()
+        
+        // req.user = user
+        res.redirect(process.env.DASHBOARD)
+        // res.status(401)
+    })
 }
 
 const getUser  = (req, res, next) => {
@@ -43,10 +55,32 @@ const getUser  = (req, res, next) => {
     next()
 }
 
+// middleware qui ajoute l'objet user dans le corps de la
+// requete s'il est bien authentifie
+function authenticateToken(req, res, next) {
+    // si y a pas de token 
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401)
+    
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        console.log(err)
+        if (err) return res.sendStatus(403) // mauvais token
+        req.user = user
+        next()
+    })
+}
+
+function generateAccessToken(user) {
+    // return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s' })
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+}
 
 module.exports = { 
-    redirectWelcome,
-    redirectDashboard,
-    getUser
+    ifOfflineRedirectWelcome,
+    ifOnlineRedirectDashboard,
+    getUser,
+    authenticateToken,
+    generateAccessToken
 } 
 
