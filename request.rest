@@ -11,11 +11,11 @@ POST http://localhost:5000/api/users/register
 Content-Type: application/json
 
 {
-    "email": "chemsoud2zkljkg@gmail.com",
+    "email": "t@gmail.com",
     "firstName": "chems eddine",
     "lastName": "aa",
     "password": "12345677",
-    "username": "anesboz2"
+    "username": "aanes"
 }
 
 ###
@@ -25,18 +25,33 @@ POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-    "email": "chemsou@gmail.com",
+    "username": "anes",
     "password": "12345677"
 }
-###
 
-# print session informations
-GET http://localhost:5000/api/users/print-session
+###
+#Log out
+DELETE http://localhost:5000/api/users/logout
+###
+#find profile 
+GET http://localhost:5000/api/profils/users/tftf
+###
+#delete profile 
+DELETE http://localhost:5000/api/profils/
 ###
 #Add friend
-POST http://localhost:5000/api/users/add_friend
+POST http://localhost:5000/api/friends/add_friend
+x-auth-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjA1MTIzM2Y2ODU4MTRkYWExNTZiMjEyIn0sImlhdCI6MTYxNTkzNzI3NiwiZXhwIjoxNjE2Mjk3Mjc2fQ.YtPn5Un30WtixmSWkzCQeYf5y17Uof499etXX6EHtwU"
 Content-Type: application/json
 
 {
     "username": "chems01"
+}
+###
+#Search user
+POST http://localhost:5000/api/search/users
+Content-Type: application/json
+
+{
+    "username": "a"
 }
