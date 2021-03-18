@@ -1,15 +1,8 @@
 const mongoose = require('mongoose');
-const ProfileSchema = new mongoose.Schema
-({
-//   user: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: 'user'
-//   },
-  username: {
-    type: String
-  },
-  website: {
-    type: String
+const ProfileSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
   },
   location: {
     type: String
@@ -27,20 +20,6 @@ const ProfileSchema = new mongoose.Schema
   },
   githubusername: {
     type: String
-  },
-  social: {
-    youtube: {
-      type: String
-    },
-    facebook: {
-      type: String
-    },
-    linkedin: {
-      type: String
-    },
-    instagram: {
-      type: String
-    }
   },
 }, {timestamps: true})
 
