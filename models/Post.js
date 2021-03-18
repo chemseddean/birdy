@@ -1,18 +1,14 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
-        // user:{
-        //     type: mongoose.Schema.Types.ObjectId, 
-        //     ref: 'users'
-        // }, 
+        user:{
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'users'
+        }, 
         text: {
             type: String, 
             required: true,
-        }, 
-        username: {
-            type: String,
-            required: true
-        }, 
+        },  
         avatar:{
             type: String,
         }, 
