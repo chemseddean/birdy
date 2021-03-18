@@ -2,7 +2,7 @@
 
 Twitter clone with MERN stack and SQLite
 
-<h1>Features</h1>
+<h1>Server side features</h1>
    <h2>Users</h2>
    <h3>[X] Register users</h3> 
    <h4>[X] Post request to api/users</h4>
@@ -12,10 +12,10 @@ Twitter clone with MERN stack and SQLite
    <h3>[X] Search users</h3>
    
    <h2>User profile</h2>
-   <h3>[ ]Get current user profile</h3> 
-   <h3>[X]Create/Update user profile</h3>
-   <h3>Get all profils</h3>
-   <h3>[X]Get profile by user ID</h3>
+   <h3>[ ] Get current user profile</h3> 
+   <h3>[X] Create/Update user profile</h3>
+   <h3>[X] Get all profils</h3>
+   <h3>[X] Get profile by user ID</h3>
      
    <h2>Posts</h2>
    <h3>[X] Create post</h3>
