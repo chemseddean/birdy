@@ -1,61 +1,22 @@
 const express = require('express'); 
-const ejs = require('ejs')
 const app = express();
+const connect_db = require('./config/Mongodb')
 
 
-// some const greped from the process environment
-// or take those default values
+connect_db()
 
+//Init Middleware
+app.use(express.json({extended: false}))
 
-// all environments
-app.use(express.json())
-app.set('view engine', 'ejs');
+app.get('/', (req, res) => res.send('API running'));
 
-// actions
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
-
-// routes
+// Define routes
 app.use('/api/users', require('./routes/api/users.js'))
 app.use('/api/posts', require('./routes/api/posts.js'))
+app.use('/api/profils', require('./routes/api/profils'))
+app.use('/api/friends', require('./routes/api/friends'))
+app.use('/api/search', require('./routes/api/search'))
 
-PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+const PORT = process.env.PORT || 5000; 
 
-
-// connect to database 
-// db_connect()
-// .then(() => {
-//     const PORT = process.env.PORT || 5000;
-//     app.listen(PORT, (error) => {
-//         if (!!error) {
-//             console.log('Something went wrong ...');
-//         } else {
-//             console.log(`Server started on port ${PORT}, and DataBase connected`)
-//         }
-//     })
-// })
-// .catch((err) => console.log(err))
-
-// version try catch await
-// try {
-//     await db_connect()
-// } catch (error) {
-//     console.log(err)
-// }
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, (error) => {
-//     if (!!error) {
-//         console.log('Something went wrong ...');
-//     } else {
-//         console.log(`Server started on port ${PORT}, and DataBase connected`)
-//     }
-// })
-
-/*
-to run server write in terminal :
-"npm run startDev" (witch is costomised in package.json)
-or simply write manually "nodemon server.js"
-*/
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));  
