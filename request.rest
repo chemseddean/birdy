@@ -1,12 +1,11 @@
-# WELCOME PAGE (inscription + connexion)
+
 GET http://localhost:5000/
 ###
 
-# DASHBOARD
-GET http://localhost:5000/dashboard
+# PRINT USERS DATABASE
+GET http://localhost:5000/api/users
 
 ###
-<<<<<<< HEAD
 # REGISTER A NEW USER
 POST http://localhost:5000/api/users/register
 Content-Type: application/json
@@ -18,21 +17,14 @@ Content-Type: application/json
     "password": "12345677",
     "username": "aanes"
 }
-=======
-# LIST OF USERS FROM DATABASE (ONLY FOT TESTING)
-GET http://localhost:5000/api/users
->>>>>>> 181b5edf88eb91cb5d0a51fe4c4edc7e44a54f1a
 
 ###
+
 # LOGIN 
 POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 2d3e291af1609c3a222e40fb7c0ec70cd020a24b
     "username": "anes",
     "password": "12345677"
 }
@@ -62,28 +54,4 @@ Content-Type: application/json
 
 {
     "username": "a"
-<<<<<<< HEAD
-=======
-=======
-    "email": "chemsou@gmail.com",
-    "password": "azertyui"
-}
-
-###
-# PAGE OF REGISTRATION
-GET http://localhost:5000/api/users/register
-
-###
-# REGISTER A NEW USER
-POST http://localhost:5000/api/users/register
-Content-Type: application/json
-
-{
-    "email": "adscv@gmail.com",
-    "firstName": "a",
-    "lastName": "n",
-    "password": "azertyui",
-    "username": "ab"
->>>>>>> 181b5edf88eb91cb5d0a51fe4c4edc7e44a54f1a
->>>>>>> 2d3e291af1609c3a222e40fb7c0ec70cd020a24b
 }
