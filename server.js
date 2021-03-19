@@ -3,7 +3,7 @@ const app = express();
 const connect_db = require('./config/Mongodb')
 
 
-connect_db()
+// connect_db()
 
 //Init Middleware
 app.use(express.json({extended: false}))

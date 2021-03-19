@@ -4,7 +4,7 @@
   "description": "Twitter clone with MERN stack and SQLite",
   "main": "server.js",
   "scripts": {
-    "start": "node server", 
+    "start": "node server",
     "server": "nodemon server"
   },
   "dependencies": {

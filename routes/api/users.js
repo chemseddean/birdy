@@ -184,8 +184,6 @@ router.post(
                 
             }
         })
-
-
         //res.send('User registered')
     } catch (e){
         console.error(e.message)

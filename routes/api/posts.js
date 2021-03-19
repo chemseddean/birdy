@@ -38,7 +38,7 @@ async (req, res) => {
 })
 
 // @route   GET api/posts
-// @desc    Get all posts
+// @desc        
 // @access  Private 
 router.get('/', auth, async (req, res) => {
     try {
