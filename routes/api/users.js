@@ -206,7 +206,7 @@ router.post(
 // @route   GET api/auth
 // @desc    Log out user
 // @access  Private
-router.delete('/logout',auth, (req,res) => {
+router.delete('/logout', auth, (req,res) => {
     res.sendStatus(204)
     //traitement (suppression du token) au niveau du cote client
 }); 
