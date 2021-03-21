@@ -12,7 +12,7 @@ const auth = require('../../middleware/auth');
 
 
 
-// @route   GET api/auth
+// @route   GET api/users
 // @desc    Test route
 // @access  Public 
 // router.get('/', auth, async (req, res) => {
@@ -124,7 +124,7 @@ router.post(
 
 });
 
-// @route   POST api/auth
+// @route   POST api/users
 // @desc    Log in user
 // @access  Public 
 router.post(
