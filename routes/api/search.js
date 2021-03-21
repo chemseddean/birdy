@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const User = require('../../models/User')
 
-// @route   POST api/search/users
+// @route   GET api/search/users
 // @desc    Search users
 // @access  Public 
-router.post('/users', async (req, res) => {
+router.get('/users', async (req, res) => {
     const userPattern = RegExp("^"+req.body.username)
     try {
         const users = await User.find({username: userPattern})
