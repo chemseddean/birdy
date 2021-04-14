@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -28,5 +30,6 @@
     "nodemon": "^2.0.7"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "proxy": "http://localhosy:5000"
 }
