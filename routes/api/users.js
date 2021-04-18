@@ -192,15 +192,15 @@ router.post(
 
 });
 
-// router.get('/', (req, res) => {
-//     db.all('SELECT * FROM Users', [], (err, results) => {
-//         if (err) {
-//             res.status(500)
-//         } else {
-//             res.status(200).send(results)
-//         }
-//     })
-// })
+router.get('/', (req, res) => {
+    db.all('SELECT * FROM Users', [], (err, results) => {
+        if (err) {
+            res.status(500)
+        } else {
+            res.status(200).send(results)
+        }
+    })
+})
 
 
 // @route   GET api/auth
