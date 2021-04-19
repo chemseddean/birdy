@@ -1,7 +1,12 @@
-import React, { Fragment, useState} from 'react'
-import axios from 'axios'
+import React, { Fragment, useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 
-const Register = () => {
+import  { connect } from 'react-redux'
+import { setAlert } from '../../actions/alert'
+import { register } from '../../actions/auth'
+import PropTypes from 'prop-types'
+
+const Register = ({ setAlert, register, isAuthenticated }) => { //extract setAlert from props
     const [formData, setFormData] = useState({
         firstName: '', 
         lastName: '', 
@@ -25,37 +30,24 @@ const Register = () => {
     const onSubmit = async e => {
         e.preventDefault() //Because its a submit
         if(password !== password2){
-            console.log("Password do not match")
+            setAlert("Password do not match", 'danger')
         } else {
-            const newUser = {
-                firstName,
-                lastName,
-                username,
-                email,
-                password,
-            }
-
-            try {
-                const config = {
-                    headers: {
-                        'Content-Type' : 'application/json'
-                    }
-                }
-
-                const body = JSON.stringify(newUser)
-
-                const res = await axios.post('/api/users/register', body, config)
-
-                console.log(res)
-            } catch (error) {
-                console.error(error.response.data)
-            }
+            register({
+              firstName,
+              lastName,
+              username,
+              email,
+              password})
         }
+    }
+
+    if(isAuthenticated){
+      return <Redirect to='/login' />
     }
 
     return <Fragment>
         <section className="container">
-      <h1 className="large text-primary">Sign Up</h1>
+      <h1 className="large text-primary">Register</h1>
       <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
       <form className="form" onSubmit={e=>onSubmit(e)}>
         <div className="form-group">
@@ -99,10 +91,20 @@ const Register = () => {
         <input type="submit" className="btn btn-primary" value="Register" />
       </form>
       <p className="my-1">
-        Already have an account? <a href="login.html">Sign In</a>
+        Already have an account? <Link to="/login">Sign In</Link>
       </p>
     </section>
     </Fragment>
 }
 
-export default Register
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+}
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { setAlert, register })(Register)
