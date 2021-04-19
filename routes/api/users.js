@@ -15,15 +15,15 @@ const auth = require('../../middleware/auth');
 // @route   GET api/users
 // @desc    Test route
 // @access  Public 
-// router.get('/', auth, async (req, res) => {
-// try {
-//     const user = await User.findById(req.user.id).select('-password');
-//     res.json(user)
-// } catch (e) {
-//     console.error(e.message)
-//     res.status(500).send('Server error')
-// }
-// }),
+router.get('/', auth, async (req, res) => {
+try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user)
+} catch (e) {
+    console.error(e.message)
+    res.status(500).send('Server error')
+}
+}),
 
 // @route   POST api/users
 // @desc    Create user
@@ -206,9 +206,15 @@ router.get('/', (req, res) => {
 // @route   GET api/auth
 // @desc    Log out user
 // @access  Private
-router.delete('/logout', auth, (req,res) => {
-    res.sendStatus(204)
-    //traitement (suppression du token) au niveau du cote client
+router.delete('/logout',(req,res) => {
+    db.all('DROP * FROM Users', [], (err, results) => {
+        if (err) {
+            res.status(500)
+        } else {
+            res.status(200)
+            console.log("success")
+        }
+    })
 }); 
 
 module.exports = router;
