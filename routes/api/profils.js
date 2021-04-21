@@ -80,15 +80,15 @@ if (!errors.isEmpty()){
 // // @route   GET api/profils
 // // @desc    Get all profiles
 // // @access  Public
-// router.get('/', async (req, res) =>{
-//     try {
-//         const profiles = await Profile.find().populate('user', ['name', 'avatar'])
-//         res.json(profiles)
-//     } catch (error) {
-//         console.error(error.message)
-//         res.status(500).send('Server Error')
-//     }
-// })
+router.get('/', async (req, res) =>{
+    try {
+        const profiles = await Profile.find().populate('username')
+        res.json(profiles)
+    } catch (error) {
+        console.error(error.message)
+        res.status(500).send('Server Error')
+    }
+})
 
 // @route   GET api/profils/user/:user_id
 // @desc    Get profile by user ID
@@ -166,4 +166,25 @@ router.get('/github/:username', (req, res) =>{
     }
 })
 
+// @route   GET api/profils/me
+// @desc    Get current user's profile
+// @access  Private 
+router.get('/me', auth, async (req, res) => {
+    try {
+        const profile = await Profile.findOne(
+        { user: req.user.id}).
+            populate(
+                'username'
+                )
+        
+        if(!profile){
+            return res.status(400).json({msg: 'There is no profile for this user'})
+        }
+        res.json(profile)
+        
+    } catch (e) {
+        consol.error(err.message); 
+        res.status(500).send('Server Error')
+    }
+})
 module.exports = router;
