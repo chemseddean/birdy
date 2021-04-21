@@ -9,7 +9,7 @@ const Dashboard = ({ getCurrentProfile, auth : { user }, profile: {profile, load
 
     useEffect(() => {
         getCurrentProfile()
-    }, [])
+    }, [getCurrentProfile])
 
     return loading && profile !== null ? 
     <Fragment>Fail</Fragment> : 
