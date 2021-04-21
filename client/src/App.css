@@ -359,6 +359,7 @@ button {
   line-height: 1.8;
   margin-bottom: 1rem;
 }
+
 .register {
   margin-top: 0;
 }
@@ -576,5 +577,8 @@ button {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
+  }
+  .profile .fa-user {
+    display: none;
   }
 }
