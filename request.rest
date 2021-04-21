@@ -3,7 +3,7 @@ GET http://localhost:5000/
 ###
 
 # PRINT USERS DATABASE
-GET http://localhost:5000/api/users
+GET http://localhost:5000/api/users/print
 
 ###
 # REGISTER A NEW USER
@@ -25,8 +25,8 @@ POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-    "username": "anes",
-    "password": "12345677"
+    "username": "amine",
+    "password": "1234567"
 }
 
 ###
@@ -55,3 +55,10 @@ Content-Type: application/json
 {
     "username": "a"
 }
+
+###
+#get profiles 
+GET http://localhost:5000/api/profils/
+
+#delete users
+DELETE http://localhost:5000/api/profils/

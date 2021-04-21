@@ -5,7 +5,6 @@ import{
     PROFILE_ERROR,
     CLEAR_PROFILE,
     GET_PROFILES
-
 } from './types'
 
 // Get current user profile

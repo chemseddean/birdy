@@ -13,6 +13,11 @@ const Navbar = ( { auth: { isAuthenticated, loading}, logout}) => {
         <span className="hide-sm">Dashboard</span>
       </Link>
     </li>
+    <li>
+      <Link to="/profiles" >
+          Profiles
+      </Link>
+    </li>
     <li><a onClick={logout} href="#!">
       <i className= "fas fa-sign-out-alt" /> {' '}
       <span className="hide-sm">Logout</span>
@@ -33,7 +38,7 @@ const Navbar = ( { auth: { isAuthenticated, loading}, logout}) => {
         <h1>
           <Link to="/"> Birdy </Link>
         </h1>
-        { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
+        { (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
       </nav>
     )
 
