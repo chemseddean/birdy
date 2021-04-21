@@ -90,6 +90,7 @@ router.post(
             
             username = new User({
                 username, 
+                avatar
             })
             const payload = {
                 user:{
