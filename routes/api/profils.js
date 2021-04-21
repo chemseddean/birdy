@@ -82,7 +82,7 @@ if (!errors.isEmpty()){
 // // @access  Public
 router.get('/', async (req, res) =>{
     try {
-        const profiles = await Profile.find().populate('username')
+        const profiles = await Profile.find().populate('users', ['username', 'avatar'])
         res.json(profiles)
     } catch (error) {
         console.error(error.message)
