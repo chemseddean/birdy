@@ -21,16 +21,15 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             bio: loading || !profile.bio ? '' : profile.bio,
             githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
             intrests: loading || !profile.intrests ? '' : profile.intrests.join(','),
-        }, [loading]) //So it doesnt keep running, runs when loads
+        })
 
-    })
+    },  [loading, getCurrentProfile])  //So it doesnt keep running, runs when loads
     
     const {
         location,
         status,
         intrests,
-        bio,
-        githubusername
+        bio
     } = formData
 
     const onChange = e => setFormData({
@@ -45,7 +44,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     return (
         <Fragment>
       <h1 className="large text-primary">
-        Create Your Profile
+        Edit Your Profile
       </h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
@@ -75,10 +74,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
           <input type="text" placeholder="* Intrests" name="intrests" value={intrests} onChange={e => onChange(e)} />
           <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
         </div>
-        <div className="form-group">
-          <input type="text" placeholder="Github Username" name="githubusername" value={githubusername} onChange={e => onChange(e)}/>
-          <small className="form-text">Optional</small>
-        </div>
+
         <div className="form-group">
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
           <small className="form-text">Tell us a little bit about yourself</small>
