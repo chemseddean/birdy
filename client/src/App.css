@@ -360,6 +360,10 @@ button {
   margin-bottom: 1rem;
 }
 
+.profile .bio {
+  display: inline-block;
+}
+
 .register {
   margin-top: 0;
 }
