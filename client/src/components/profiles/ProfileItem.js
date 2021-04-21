@@ -6,7 +6,8 @@ const ProfileItem = ({ profile: {
     githubusername,
     status, 
     location, 
-    intrests
+    intrests, 
+    bio
 }}) => {
     return (
         <div className="profile bg-light">
@@ -15,9 +16,10 @@ const ProfileItem = ({ profile: {
                 <h2>{githubusername}</h2>
                 <p>{status}</p>
                 <p className="my-1"><i class="fas fa-thumbtack"></i>{location && <span>{' '}{location}</span>}</p>
-                <Link to={`/profils/user/${githubusername}`} className="btn btn-primary">
+                {/* <Link to={`/profils/user/${githubusername}`} className="btn btn-primary">
                     View Profile
-                </Link>
+                </Link> */}
+                <p className="bio">{bio}</p>
             </div>
             <ul>
                 {intrests.slice(0, 5).map((intrest, index)=>(
@@ -26,6 +28,7 @@ const ProfileItem = ({ profile: {
                     </li>
                 ))}
             </ul>
+            
         </div>
     )
 }
