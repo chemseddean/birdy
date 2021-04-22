@@ -6,8 +6,28 @@ import {
     POST_ERROR,
     UPDATE_LIKES,
     DELETE_POST,
-    ADD_POST
+    ADD_POST, 
+    ADD_COMMENT,
+    DELETE_COMMENT,
+    GET_POST
 } from './types'
+
+//post
+export const getPost = id => async dispatch => {
+    try {
+        const res = await axios.get(`/api/posts/${id}`)
+
+        dispatch({
+            type: GET_POST,
+            payload: res.data
+        })
+    } catch (error){
+        dispatch({
+            type: POST_ERROR, 
+            //payload: { msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
 
 //posts
 export const getPosts = () => async dispatch => {
@@ -97,6 +117,52 @@ export const removeLike = id => async dispatch => {
             type: UPDATE_LIKES,
             payload: {id, likes : res.data}
         })
+    } catch (error){
+        dispatch({
+            type: POST_ERROR, 
+            //payload: { msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+
+//create comment
+export const addComment =  (postId, formData) => async dispatch => {
+    
+    const config = {
+        headers: {
+            'Content-Type' : 'application/json'
+
+        }
+    }
+    
+    try {
+        const res = await axios.post(`/api/posts/comment/${postId}`, formData, config)
+
+        dispatch({
+            type: ADD_COMMENT,
+            payload: res.data 
+        })
+
+        dispatch(setAlert('Comment added', 'success'))
+    } catch (error){
+        dispatch({
+            type: POST_ERROR, 
+            //payload: { msg: error.response.statusText, status: error.response.status}
+        })
+    }
+}
+
+//delete comment
+export const removeComment = (postId, commentId)=> async dispatch => {
+    try {
+        const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`)
+
+        dispatch({
+            type: DELETE_COMMENT,
+            payload: commentId
+        })
+
+        dispatch(setAlert('Comment removed', 'success'))
     } catch (error){
         dispatch({
             type: POST_ERROR, 
