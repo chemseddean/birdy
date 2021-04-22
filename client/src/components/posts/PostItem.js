@@ -10,7 +10,9 @@ const PostItem = ({ auth,
      addLike, 
      removeLike,
      deletePost,
-    post: { _id, text, user, likes, comments, date} }) => {
+    post: { _id, text, user, likes, comments, date},
+    showActions
+  }) => {
     return (
         <div className="post bg-white p-1 my-1">
           <div>
@@ -29,7 +31,10 @@ const PostItem = ({ auth,
                     {date}
                     </Moment>
             </p>
-            <button   
+
+            {showActions && 
+            <Fragment>
+              <button   
             onClick={e=> addLike(_id)}   
             type="button"
             className="btn btn-light">
@@ -44,7 +49,7 @@ const PostItem = ({ auth,
             <i className="fas fa-thumbs-down"/> 
             </button>
 
-            <Link to={`/post/${_id}`} className="btn btn-primary">
+            <Link to={`/posts/${_id}`} className="btn btn-primary">
                 Comments {comments.length> 0 && (<span className='comment-count'> {comments.length} </span>)}
             </Link>
 
@@ -56,10 +61,17 @@ const PostItem = ({ auth,
                     <i className="fas fa-times"></i>
                   </button>
                 )}
+              </Fragment>
+              }
+            
              
           </div>
         </div>
     )
+}
+
+PostItem.defaultProps = {
+  showActions : true,
 }
 
 PostItem.propTypes = {
@@ -68,8 +80,6 @@ PostItem.propTypes = {
     addLike: PropTypes.func.isRequired,
     removeLike: PropTypes.func.isRequired,
     deletePost: PropTypes.func.isRequired,
-
-
 }
 
 const mapStateToProps = state => ({
