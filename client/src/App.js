@@ -11,7 +11,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import CreateProfile from './components/profile-form/CreateProfile'
 import EditProfile from './components/profile-form/EditProfile'
 import Profiles from './components/profiles/Profiles'
-
+import Posts from './components/posts/Posts'
 
 import { Provider } from 'react-redux' //connect redux with react
 import store from './store'
@@ -47,6 +47,8 @@ const App = () =>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/create-profile" component={CreateProfile} />
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+            <PrivateRoute exact path="/posts" component={Posts} />
+
 
           </Switch>
         </section>
