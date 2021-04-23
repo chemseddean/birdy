@@ -6,32 +6,33 @@ import PropTypes from 'prop-types'
 
 
 const Login = ({ login, isAuthenticated }) => {
-    const [formData, setFormData] = useState({ 
-        username: '', 
-        password: '',
-    })
+  const [formData, setFormData] = useState({ 
+      username: '', 
+      password: '',
+  })
 
-    const { 
-        username,
-        password } = formData
+  const { 
+      username,
+      password 
+  } = formData
 
-    const onChange = e => setFormData({
-        ...formData, [e.target.name]: e.target.value
-    })
-    
-    const onSubmit = async e => {
-        e.preventDefault() //Because its a submit
-        login(username, password)
-    }
+  const onChange = e => setFormData({
+      ...formData, [e.target.name]: e.target.value
+  })
+  
+  const onSubmit = async e => {
+      e.preventDefault() //Because its a submit
+      login(username, password)
+  }
 
-    //Redirect if logged 
+  //Redirect if logged 
 
-    if(isAuthenticated){
-      return <Redirect to="/dashboard" />
-    }
+  if(isAuthenticated){
+    return <Redirect to="/dashboard" />
+  }
 
-    return <Fragment>
-        <section className="container">
+  return (
+    <section className="login">
       <h1 className="large text-primary">Log in</h1>
       <p className="lead"><i className="fas fa-user"></i> Log in your Account</p>
       <form className="form" onSubmit={e=>onSubmit(e)}>
@@ -55,7 +56,7 @@ const Login = ({ login, isAuthenticated }) => {
         You don't have an account? <Link to="/register">Create an account</Link>
       </p>
     </section>
-    </Fragment>
+  )
 }
 
 Login.propTypes = {

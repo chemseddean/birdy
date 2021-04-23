@@ -24,6 +24,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
+  background-image: url(./img/saw.jpg);
   color: #333;
 }
 a {
@@ -41,6 +42,7 @@ img {width: 100%}
   padding: 0.7rem 2rem;
   border-bottom: solid 1px var(--primary-color);
   position: relative;
+  background-color: rgb(0,0,0, 0.4);
   /* opacity: 0.9; */
 }
 
@@ -125,14 +127,16 @@ img {width: 100%}
   margin-top: 5em;
   padding: 2rem;
   max-width: 80%;
-  background-color: rgb(255,255,255, 0.5);
+  /* background-color: rgb(255,255,255, 0.5); */
+  border: 1px solid var(--primary-color);
+  background-color: #f2f2f2;
 }
 
 @media (max-width: 700px) { /* TEL */
   .about {
     margin-top: 3em;
     max-width: 95%;
-}
+  }
 }
 
 .about ul {
@@ -164,11 +168,121 @@ img {width: 100%}
   text-align: center;
 }
 
-
-
 .aide {
   color: orange;
 }
+
+
+/* --------- Register */
+.register, .login {
+  font: inherit;
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  padding: 1rem 2rem;
+  width: 40%;
+  border: 1px solid var(--primary-color);
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 700px) { /* TEL */
+  .register {
+    width: 80%;
+  }
+}
+
+/* Forms */
+.form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-basis: auto
+}
+.form input {
+  margin: 0.5rem;
+  background-color: white;
+  padding: 0.4rem;
+  padding-left: 1rem;
+  border: 1px solid #ccc;
+  font: inherit;
+  flex-basis: 100%;
+  width: 100%;
+}
+
+.doubleColumn {
+  display: flex;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--light-color);
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+/* 
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+} */
+
+/* .form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form input[type="date"],
+.form select,
+.form textarea { */
+  /* display: block; */
+  /* width: 100%; */
+  /* padding: 0.4rem; */
+  /* font-size: 1.2rem; */
+  /* border: 1px solid #ccc; */
+/* } */
+/* 
+.form input[type="text"] {
+  flex: 1;
+} */
+
+.form input[type="submit"] {
+  background-color: var(--primary-color);
+}
+
+.form .social-input {
+  display: flex;
+}
+
+.form .social-input i {
+  padding: 0.5rem;
+  width: 4rem;
+}
+
+.form .social-input i.fa-twitter {
+  color: #38a1f3;
+}
+.form .social-input i.fa-facebook {
+  color: #3b5998;
+}
+.form .social-input i.fa-instagram {
+  color: #3f729b;
+}
+.form .social-input i.fa-youtube {
+  color: #c4302b;
+}
+.form .social-input i.fa-linkedin {
+  color: #0077b5;
+}
+
 
 /* Text Styles*/
 .x-large {
@@ -252,18 +366,7 @@ img {width: 100%}
   margin: 3rem 0;
 }
 
-.btn {
-  display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
-}
+
 
 .badge {
   font-size: 0.8rem;
@@ -350,59 +453,7 @@ img {width: 100%}
   margin: 1.5rem 0;
 }
 
-/* Forms */
-.form .form-group {
-  margin: 1.2rem 0;
-}
 
-.form .form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-}
-
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
-.form select,
-.form textarea {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-}
-
-.form input[type="submit"],
-button {
-  font: inherit;
-}
-
-.form .social-input {
-  display: flex;
-}
-
-.form .social-input i {
-  padding: 0.5rem;
-  width: 4rem;
-}
-
-.form .social-input i.fa-twitter {
-  color: #38a1f3;
-}
-.form .social-input i.fa-facebook {
-  color: #3b5998;
-}
-.form .social-input i.fa-instagram {
-  color: #3f729b;
-}
-.form .social-input i.fa-youtube {
-  color: #c4302b;
-}
-.form .social-input i.fa-linkedin {
-  color: #0077b5;
-}
 
 .table th,
 .table td {
@@ -429,9 +480,7 @@ button {
   display: inline-block;
 }
 
-.register {
-  margin-top: 0;
-}
+
 
 /* Profile Page */
 .profile-grid {
