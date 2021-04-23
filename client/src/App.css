@@ -7,6 +7,39 @@
   --success-color: #28a745;
 }
 
+.aide {
+  color: orange;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.about {
+  position: relative;
+  font-size: 140%;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 100%;
+  margin: auto;
+  padding: 2em;
+
+}
+
+.about ul {
+  list-style: initial;
+  padding-left: 2em;
+}
+
+.about small {
+  position: absolute;
+  right: 2em;
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +47,7 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Century Gothic","Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -42,6 +75,7 @@ img {
   padding: 0 2rem;
   margin-top: 6rem;
   margin-bottom: 3rem;
+  background-color: rgba(255, 255, 255, 0.534);
 }
 
 /* Text Styles*/
@@ -49,6 +83,10 @@ img {
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+}
+
+.x-large:hover {
+  font-size: 5rem;
 }
 
 .large {
@@ -333,7 +371,8 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url("./img/unnamed.png") no-repeat center center/cover;
+  /* background: url("./img/unnamed.png") no-repeat center center/cover; */
+  /* background: url('./img/sky-vid.mp4'); */
   height: 100vh;
 }
 
@@ -500,6 +539,7 @@ button {
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
+    /* background-color: white; */
   }
 
   .hide-sm {

@@ -1,11 +1,12 @@
 const express = require('express'); 
+// creation d'une application (server) a l'aide de framework express
 const app = express();
+
+// connexion a la base de donnes mongodb
 const connect_db = require('./config/Mongodb')
-
-
 connect_db()
 
-//Init Middleware
+// Middleware pour inclure le format json 
 app.use(express.json({extended: false}))
 
 app.get('/', (req, res) => res.send('API running'));

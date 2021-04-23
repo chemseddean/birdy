@@ -14,14 +14,10 @@ const Navbar = ( { auth: { isAuthenticated, loading}, logout}) => {
       </Link>
     </li>
     <li>
-      <Link to="/profiles" >
-          Profiles
-      </Link>
+      <Link to="/profiles">Profiles</Link>
     </li>
     <li>
-      <Link to="/posts" >
-          Posts
-      </Link>
+      <Link to="/posts" >Posts</Link>
     </li>
     <li><a onClick={logout} href="#!">
       <i className= "fas fa-sign-out-alt" /> {' '}
@@ -38,19 +34,24 @@ const Navbar = ( { auth: { isAuthenticated, loading}, logout}) => {
     <li><Link to="/login">Login</Link></li>
   </ul>
   )
-    return (
-        <nav className="navbar bg-dark">
-        <h1>
-          <Link to="/"> Birdy </Link>
-        </h1>
-        { (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
-      </nav>
-    )
 
-    }
+
+
+  
+  return (
+      <nav className="navbar bg-dark">
+      <h1>
+        <Link to="/"> Solidaide </Link>
+      </h1>
+      { (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
+    </nav>
+  )
+
+}
+
 Navbar.prototypes = {
-logout: PropTypes.func.isRequired,
-auth: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({

@@ -7,7 +7,10 @@ const PrivateRoute = ({
     component: Component, 
     auth: { isAuthenticated, loading},
      ...rest
-    }) => (
+    }) => {
+    document.querySelector('body').style.background = "none";
+    // document.querySelector('body').style.backgroundColor = "inital";
+    (
     <Route 
     {...rest} 
     render= { 
@@ -17,6 +20,7 @@ const PrivateRoute = ({
         } 
         />
     )
+    }
 
 PrivateRoute.propTypes = {
     auth: PropTypes.object.isRequired,

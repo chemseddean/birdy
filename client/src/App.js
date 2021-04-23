@@ -13,6 +13,7 @@ import EditProfile from './components/profile-form/EditProfile'
 import Profiles from './components/profiles/Profiles'
 import Posts from './components/posts/Posts'
 import Post from './components/post/Post'
+import About from './components/about/About'
 
 
 import { Provider } from 'react-redux' //connect redux with react
@@ -44,16 +45,14 @@ const App = () =>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/Profiles" component={Profiles} />
-
+            <Route exact path="/About" component={About} />
 
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
             <PrivateRoute exact path="/create-profile" component={CreateProfile} />
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />
             <PrivateRoute exact path="/posts" component={Posts} />
             <PrivateRoute exact path="/posts/:id" component={Post} />
-
-
-
+            
           </Switch>
         </section>
       </Fragment>
