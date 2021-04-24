@@ -97,28 +97,9 @@ img {width: 100%}
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 4px solid green; */
-
-}
-
-@media (max-width: 700px) {
-  .container {
-    /* margin-top: 8rem; */
-    /* background-color: white; */
-  }
 }
 
 /* --------- about */
-/* .about {
-  position: relative;
-  font-size: 140%;
-  background-color: rgba(255, 255, 255, 0.4);
-  width: 100%;
-  margin: 0;
-  padding: 2em;
-  color: black;
-} */
-
 .about {
   display: flex;
   flex-direction: column;
@@ -129,9 +110,12 @@ img {width: 100%}
   max-width: 80%;
   /* background-color: rgb(255,255,255, 0.5); */
   border: 1px solid var(--primary-color);
-  background-color: #f2f2f2;
+  background-color:  rgb(242, 242, 242,0.9)
 }
 
+.about h1 {
+  color: var(--primary-color);
+}
 @media (max-width: 700px) { /* TEL */
   .about {
     margin-top: 3em;
@@ -230,33 +214,52 @@ img {width: 100%}
   outline: none;
 }
 
-/* 
-.form .form-text {
-  display: block;
-  margin-top: 0.3rem;
-  color: #888;
-} */
-
-/* .form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
-.form select,
-.form textarea { */
-  /* display: block; */
-  /* width: 100%; */
-  /* padding: 0.4rem; */
-  /* font-size: 1.2rem; */
-  /* border: 1px solid #ccc; */
-/* } */
-/* 
-.form input[type="text"] {
-  flex: 1;
-} */
-
 .form input[type="submit"] {
   background-color: var(--primary-color);
 }
+
+/* ----------- kkProfiles */
+
+.profils-list {
+  display: flex;
+  color: black;
+  margin-top: 1em;
+  padding: 2rem;
+  /* max-width: 90%; */
+  width: 90%;
+  height: 70vh;
+  border: 1px solid var(--primary-color);
+  background-color:  rgb(242, 242, 242,0.9);
+  border: solid red;
+}
+
+.left {
+  border: solid var(--success-color);
+  flex: 1;
+  text-align: center;
+  padding: 1rem;
+}
+
+.left h1 {
+  margin: auto;
+  margin-bottom: 2rem;
+}
+.profiles {
+  border: solid violet;
+  overflow: scroll;
+  flex: 1;
+}
+.profile {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  align-items: center;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+
 
 .form .social-input {
   display: flex;
@@ -465,24 +468,12 @@ img {width: 100%}
   background: var(--light-color);
 }
 
-/* Profiles Page */
-.profile {
-  display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
-  align-items: center;
-  grid-gap: 2rem;
-  padding: 1rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
+
 
 .profile .bio {
   display: inline-block;
 }
 
-
-
-/* Profile Page */
 .profile-grid {
   display: grid;
   grid-template-areas:
@@ -574,6 +565,12 @@ img {width: 100%}
   flex: 3;
   flex-basis: 20%;
 }
+
+
+
+
+/* Profile Page */
+
 
 /* Posts Page */
 .post-form .post-form-header {

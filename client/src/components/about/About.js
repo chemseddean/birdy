@@ -4,7 +4,7 @@ const About = () => {
 	document.querySelector('body').style.backgroundImage = "url(" + img+")"
 	return (
 		<section className="about">
-				<h1>Solidaide</h1>
+				<h1>Birdy</h1>
 				<p>
 						Projet réalisé dans le cadre de l'unité d'enseignement LU3I017 - TECHNOLOGIES DU WEB à Sorbonne Université<br></br>
 						Par:<br></br>

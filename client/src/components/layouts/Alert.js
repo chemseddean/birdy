@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+/*
+affiche un message de confirmation ou d'erreur  (en vert, rouge)
+dans certains cas: creation d'un nouveau utlisateur ....
+
+*/
 const Alert = ({ alerts }) => alerts !== null 
                             && alerts.length > 0 
                             && alerts.map(alert => (
