@@ -30,7 +30,7 @@ if (!errors.isEmpty()){
         location, 
         bio,
         status, 
-        githubusername,
+        username,
         intrests, 
     } = req.body
 
@@ -43,7 +43,7 @@ if (!errors.isEmpty()){
     if (location) profileFields.location = location
     if (bio) profileFields.bio = bio
     if (status) profileFields.status = status
-    if (githubusername) profileFields.githubusername = githubusername
+    if (username) profileFields.username = username
     if (intrests) {
         profileFields.intrests = intrests.
         split(',').

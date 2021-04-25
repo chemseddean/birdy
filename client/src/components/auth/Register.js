@@ -47,7 +47,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => { //extract setAle
   }
 
   return (
-    <section className="container register">
+    <section className="register">
       <h1 className="large text-primary">Register</h1>
       <p className="lead"><i className="fas fa-user"></i>&nbsp;&nbsp;&nbsp;Create Your Account</p>
       <form className="form" onSubmit={e=>onSubmit(e)}>

@@ -11,7 +11,7 @@ const Posts = ({ getPosts, post: { posts, loading }}) => {
     },[getPosts])
     
     return !loading && (
-        <Fragment>
+        <section className="standard">
             <h1 className="large text-primary">Posts</h1>
                 <p className="lead">
                <i className="fa fa-user"></i> Welcome to Birdy 
@@ -22,7 +22,7 @@ const Posts = ({ getPosts, post: { posts, loading }}) => {
                  <PostItem key={post._id} post={post} />
              ))}
             </div>
-        </Fragment>
+        </section>
     )
 }
 

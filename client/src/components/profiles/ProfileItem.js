@@ -3,29 +3,17 @@ import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom'
 
 const ProfileItem = ({ profile: {
-    githubusername,
+    username,
     status, 
-    location, 
-    intrests, 
-    bio
-}}) => {
+    location
+}, onClick}) => {
     return (
-        <div className="profile bg-light">
-            <i class="far fa-user fa-7x"></i>
-            <div>
-                <h2>{githubusername}</h2>
-                <p>{status}</p>
-                <p className="my-1"><i class="fas fa-thumbtack"></i>{location && <span>{' '}{location}</span>}</p>
-                <p className="bio">{bio}</p>
-            </div>
+        <div tabindex="1" className="profile" onClick={onClick}>
+            <h2>{username}</h2>
             <ul>
-                {intrests.slice(0, 5).map((intrest, index)=>(
-                    <li key={index} className="text-primary">
-                        <i className="fas fa-check"></i> {intrest}
-                    </li>
-                ))}
+                <li>{status}</li>
+                <li><i class="fas fa-thumbtack"></i>&nbsp;&nbsp;{location}</li>
             </ul>
-            
         </div>
     )
 }

@@ -7,6 +7,8 @@ import PropTypes from 'prop-types'
 // pour l'authentification
 import {logout} from '../../actions/auth'
 
+import logo from '../../img/sky-vid.mp4' // relative path to image
+
 const Navbar = ( {auth: { isAuthenticated, loading}, logout} ) => {
   // si je suis authentified
   const authLinks = (
@@ -24,7 +26,7 @@ const Navbar = ( {auth: { isAuthenticated, loading}, logout} ) => {
         <Link to="/posts" >Posts</Link>
       </li>
       <li>
-        <a onClick={logout} href="#!">
+        <a onClick={logout} href="/login">
         <i className= "fas fa-sign-out-alt" />{' '}
         <span className="hide-sm">Logout</span>
         </a>
@@ -32,13 +34,16 @@ const Navbar = ( {auth: { isAuthenticated, loading}, logout} ) => {
   </ul>
   )
   // si je ne suis pas authentified
-  const guestLinks = (
+  const guestLinks = ( <Fragment>
+    <video autoPlay muted loop id="myVideo">
+      <source src={logo} type="video/mp4"></source>
+    </video>
     <ul>
       <li><Link to="/about">About</Link></li>
       <li><Link to="/register">Register</Link></li>
       <li><Link to="/login">Login</Link></li>
     </ul>
-  )
+  </Fragment>)
 
   return (
     <nav className="navbar">

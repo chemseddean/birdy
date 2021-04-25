@@ -4,7 +4,7 @@ const User = require('../../models/User')
 
 // @route   GET api/search/users
 // @desc    Search users
-// @access  Public 
+// @access  Public <
 router.get('/users', async (req, res) => {
     const userPattern = RegExp("^"+req.body.username)
     try {

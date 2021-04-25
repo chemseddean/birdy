@@ -10,7 +10,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         status: '',
         intrests: '',
         bio: '',
-        githubusername: ''
+        username: ''
     })
 
     useEffect(() => {
@@ -19,17 +19,18 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             location: loading || !profile.location ? '' : profile.location,
             status: loading || !profile.status ? '' : profile.status,
             bio: loading || !profile.bio ? '' : profile.bio,
-            githubusername: loading || !profile.githubusername ? '' : profile.githubusername,
+            username: loading || !profile.username ? '' : profile.username,
             intrests: loading || !profile.intrests ? '' : profile.intrests.join(','),
         })
 
     },  [loading, getCurrentProfile])  //So it doesnt keep running, runs when loads
     
     const {
-        location,
-        status,
-        intrests,
-        bio
+      location,
+      status,
+      intrests,
+      bio,
+      username
     } = formData
 
     const onChange = e => setFormData({
@@ -41,17 +42,13 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       e.preventDefault()
       createProfile(formData, history, true)
     }
-    return (
-        <Fragment>
-      <h1 className="large text-primary">
-        Edit Your Profile
-      </h1>
+  return (
+    <section className="create-profil">
+      <h1 className="large text-primary">Créer votre profil</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Let's get some information to make your
-        profile stand out
-      </p>
-      <small>* = required field</small>
-      <form className="form" onSubmit={e=>onSubmit(e)}>
+        <i className="fas fa-user"></i>&nbsp;&nbsp; informations vous conernant</p>
+      {/* <small>* = required field</small> */}
+      <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <select name="status" value={status} onChange={e => onChange(e)}>
             <option value="0">* Select Professional Status</option>
@@ -64,27 +61,22 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
           </select>
           <small className="form-text">Give us an idea of where you are at in your career</small>
         </div>
-        
-        <div className="form-group">
-          <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)}/>
-          <small className="form-text"
-            >Code & state suggested (eg. 75010, PARIS)</small>
-        </div>
-        <div className="form-group">
+        <div className="doubleColumn">
+          <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />
           <input type="text" placeholder="* Intrests" name="intrests" value={intrests} onChange={e => onChange(e)} />
-          <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
         </div>
-
+        <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
         <div className="form-group">
-          <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
-          <small className="form-text">Tell us a little bit about yourself</small>
+          <input type="text" placeholder="Github Username" name="username" value={username} onChange={e => onChange(e)} />
+          <small className="form-text">Optional</small>
         </div>
+        <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
 
-        <Link className="btn btn-light my-1" to="/dashboard">Go Back</Link>
+        <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
         <input type="submit" className="btn btn-primary my-1" />
       </form>
-        </Fragment>
-    )
+    </section>
+  )
 }
 
 EditProfile.propTypes = {

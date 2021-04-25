@@ -11,9 +11,11 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
         getCurrentProfile()
     }, [getCurrentProfile])
 
-    return loading && profile !== null ?
-        <Fragment>Fail</Fragment> :
-        <Fragment>
+    if (loading && profile !== null) 
+        return <Fragment>Fail</Fragment>
+    
+    return ( 
+        <section className="standard dash">
             <h1 className="large text-primary">Dashboard</h1>
             <p className="lead">
                 <i className="fas fa-user"></i> Welcome {user && user.username}
@@ -24,13 +26,13 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
                         <DashboardActions />
                     </Fragment> :
                     <Fragment>
-                        <p>You have not yet set up a profile, click down below to add some info :)</p>
+                        <p>You have not yet set up a profile, click down below to add some info :</p>
                         <Link to="/create-profile" className="btn btn-primary my-1">
                             Create profile
                 </Link>
                     </Fragment>
             }
-        </Fragment>
+        </section>)
 }
 
 Dashboard.propTypes = {

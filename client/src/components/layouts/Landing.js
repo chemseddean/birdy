@@ -3,7 +3,6 @@ import {Link, Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import logo from './../../img/sky-vid.mp4' // relative path to image
 
 
 const Landing = ({ isAuthenticated }) => {
@@ -11,11 +10,7 @@ const Landing = ({ isAuthenticated }) => {
     return <Redirect to='/dashboard' />
   }
   return (
-    <section className="landing">
-      {/* background video */}
-      <video autoPlay muted loop id="myVideo">
-        <source src={logo} type="video/mp4"></source>
-      </video>
+    <section className="landing">      
       <div className="landing-inner">
         <h1 className="x-large">Bir<span className="aide">dy</span></h1>
         <p className="lead">Luttons ensemble contre la précarité étudiante<br></br><small>sortir durablement de la crise</small></p>

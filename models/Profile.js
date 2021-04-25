@@ -18,7 +18,7 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String
   },
-  githubusername: {
+  username: {
     type: String
   },
 }, {timestamps: true})

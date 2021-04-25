@@ -17,7 +17,6 @@ import Posts from './components/posts/Posts'
 import Post from './components/post/Post'
 import About from './components/about/About'
 import Alert from './components/layouts/Alert'
-
 // link to css
 import './App.css';
 
