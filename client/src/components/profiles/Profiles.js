@@ -77,6 +77,7 @@ const afficherProfil = (profile) => {
 		<h2>{shwonName}</h2>
 			<br></br>
 	        <ul>
+				<li>Mon vrai nom c'est : {profile.firstName, profile.lastName}</li>
 	            <li>Je suis en : {status}</li>
 	            <li>Je suis basé à : <i class="fas fa-thumbtack"></i>&nbsp;&nbsp;{location}</li>
 	            <li>Je m'interesse à : {intrests}</li>

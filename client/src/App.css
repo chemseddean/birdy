@@ -26,6 +26,10 @@ body {
   background-color: #fff;
   background-image: url(./img/saw.jpg);
   color: #333;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 a {
   text-decoration: none;
@@ -100,13 +104,9 @@ img {width: 100%}
   flex-direction: column;
   /* background-color:  rgb(242, 242, 242,0.2); */
   color: black;
-  margin: 0;
+  margin: 0 auto;
   margin-top: 1em;
-  padding: 2rem;
-  padding-top: 0;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
+  padding: 0 2rem;  
   width: 80%;
 }
 
@@ -190,6 +190,10 @@ border: 1px solid var(--primary-color);
   }
 }
 
+.linked {
+  color: blue;
+  text-decoration: underline;
+}
 /* Forms */
 .form {
   display: flex;
@@ -454,11 +458,15 @@ border: 1px solid var(--primary-color);
 }
 
 .alert {
+  display: block;
   padding: 0.8rem;
   margin: 1rem 0;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
+  z-index: 100;
+  background-color: deeppink;
+  text-align: center;
 }
 
 .btn-primary,

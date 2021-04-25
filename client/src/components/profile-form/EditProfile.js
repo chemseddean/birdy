@@ -51,15 +51,16 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <select name="status" value={status} onChange={e => onChange(e)}>
-            <option value="0">* Select Professional Status</option>
-            <option value="Junior Developer">Junior Developer</option>
-            <option value="Senior Developer">Senior Developer</option>
-            <option value="Manager">Manager</option>
-            <option value="Student">Student</option>
-            <option value="Instructor">Instructor</option>
-            <option value="Other">Other</option>
+            <option value="0">Niveau d'études</option>
+            <option value="Lycéen">Lycéen</option>
+            <option value="Licence L1">Licence L1</option>
+            <option value="Licence L2">Licence L2</option>
+            <option value="Licence L3">Licence L3</option>
+            <option value="Master 1">Master 1</option>
+            <option value="Master 2">Master 2</option>
+            <option value="Autre">Autre</option>
           </select>
-          <small className="form-text">Give us an idea of where you are at in your career</small>
+          <small className="form-text">Quel est ton niveau d'études</small>
         </div>
         <div className="doubleColumn">
           <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />

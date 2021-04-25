@@ -13,12 +13,11 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
 
     if (loading && profile !== null) 
         return <Fragment>Fail</Fragment>
-    
     return ( 
         <section className="standard dash">
             <h1 className="large text-primary">Dashboard</h1>
             <p className="lead">
-                <i className="fas fa-user"></i> Welcome {user && user.username}
+                <i className="fas fa-user"></i> Welcome {user && user.firstName}
             </p>
             {
                 profile !== null ?

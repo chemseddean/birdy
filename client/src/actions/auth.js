@@ -41,23 +41,20 @@ export const register = ({firstName, lastName, username, email, password}) => as
     }
 
     const body = JSON.stringify({firstName, lastName, username, email, password})
-
     try{
         const res = await axios.post("/api/users/register", body, config)
-
         dispatch({
             type: REGISTER_SUCCESS, 
             payload: res.data
         })
-    } catch(error){
-        const errors = error.response.data.errors
 
-        if(errors){
-            errors.forEach(e => dispatch(setAlert(e.msg, "danger")))
-        }
+    } catch(error){
+        const msg = error.response.status + " : " + error.response.data
+        dispatch(setAlert(msg, "danger"))
         dispatch({
             type: REGISTER_FAIL
-        })
+        }
+        )
     }
 }
 
@@ -81,11 +78,8 @@ export const login = (username, password) => async dispatch => {
 
         dispatch(loadUser())
     } catch(error){
-        const errors = error.response.data.errors
-
-        if(errors){
-            errors.forEach(e => dispatch(setAlert(e.msg, "danger")))
-        }
+        const msg = error.response.status + " : " + error.response.data
+        dispatch(setAlert(msg, "danger"))
         dispatch({
             type: LOGIN_FAIL
         })
