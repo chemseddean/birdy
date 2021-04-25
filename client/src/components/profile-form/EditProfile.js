@@ -10,7 +10,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         status: '',
         intrests: '',
         bio: '',
-        username: ''
+      shwonName: ''
     })
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             location: loading || !profile.location ? '' : profile.location,
             status: loading || !profile.status ? '' : profile.status,
             bio: loading || !profile.bio ? '' : profile.bio,
-            username: loading || !profile.username ? '' : profile.username,
+            shwonName: loading || !profile.shwonName ? '' : profile.shwonName,
             intrests: loading || !profile.intrests ? '' : profile.intrests.join(','),
         })
 
@@ -30,7 +30,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
       status,
       intrests,
       bio,
-      username
+      shwonName
     } = formData
 
     const onChange = e => setFormData({
@@ -67,7 +67,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         </div>
         <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
         <div className="form-group">
-          <input type="text" placeholder="Github Username" name="username" value={username} onChange={e => onChange(e)} />
+          <input type="text" placeholder="shwonName" name="shwonName" value={shwonName} onChange={e => onChange(e)} />
           <small className="form-text">Optional</small>
         </div>
         <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>

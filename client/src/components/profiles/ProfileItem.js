@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 // import { Link } from 'react-router-dom'
 
 const ProfileItem = ({ profile: {
-    username,
+    shwonName,
     status, 
     location
 }, onClick}) => {
     return (
-        <div tabindex="1" className="profile" onClick={onClick}>
-            <h2>{username}</h2>
+        <div tabIndex="1" className="profile" onClick={onClick}>
+            <h2>{shwonName}</h2>
             <ul>
                 <li>{status}</li>
                 <li><i class="fas fa-thumbtack"></i>&nbsp;&nbsp;{location}</li>

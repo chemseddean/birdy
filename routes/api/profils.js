@@ -30,7 +30,7 @@ if (!errors.isEmpty()){
         location, 
         bio,
         status, 
-        username,
+        shwonName,
         intrests, 
     } = req.body
 
@@ -43,7 +43,7 @@ if (!errors.isEmpty()){
     if (location) profileFields.location = location
     if (bio) profileFields.bio = bio
     if (status) profileFields.status = status
-    if (username) profileFields.username = username
+    if (shwonName) profileFields.shwonName = shwonName
     if (intrests) {
         profileFields.intrests = intrests.
         split(',').

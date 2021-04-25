@@ -9,6 +9,8 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }  }) => {
 		getProfiles()
 	}, [getProfiles] )
 	const [count, setCount] = useState(0);
+	const [listing, setList] = useState(profiles);
+	// alert(listing)
 
 	if (loading) 
 		return <h1 className="large text-primary">Profiles</h1>
@@ -19,29 +21,44 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }  }) => {
 				<h1 className="large text-primary">Profiles</h1>
 				{
 					count == null ?
-					<p className="lead"> Clicker sur un profil pour avoir plus d 	informations</p>
+					<p className="lead"> Clicker sur un profil pour avoir plus d'informations</p>
 					:
 					afficherProfil(count)
 				}
 			</div>
-			
 			<div className="profiles">
-				{
-					profiles.length > 0 ?
-						(
-							profiles.map(profile => (
-								<ProfileItem key={profile._id} profile={profile} onClick={() => setCount(profile)}/>
-							))
-						) :
-						<h4>No profiles to show</h4>
-				}
+				<input className="search" onChange={(e) => {
+					var value = e.target.value
+					if (value == '')
+						return setList(profiles)
+					setList(searching(profiles,value))}
+					
+				}></input>
+				<div>
+					{
+						listing.length > 0 ?
+							(
+								listing.map(profile => (
+									<ProfileItem key={profile._id} profile={profile} onClick={() => setCount(profile)} />
+								))
+							)
+							:
+							<h4>No profiles to show</h4>
+					}
+				</div>
 			</div>
+			
 		</section>
 	)
 	
 }
 
-
+function searching(profiles, substring) {
+	const regex = new RegExp("^" + substring.toLowerCase() + ".*$");	
+	var ret = profiles.filter(profile => regex.test(profile.shwonName.toLowerCase()))
+	// alert(ret)
+	return ret
+}
 
 const afficherProfil = (profile) => {
 	if (!profile) {
@@ -49,7 +66,7 @@ const afficherProfil = (profile) => {
 	}
 	// distract
 	const {
-		username,
+		shwonName,
 		status,
 		location,
 		intrests,
@@ -57,10 +74,10 @@ const afficherProfil = (profile) => {
 		createdAt
 	} = profile
 	return (<ul>
-	        <h2>{username}</h2>
+		<h2>{shwonName}</h2>
 			<br></br>
 	        <ul>
-	            <li>Je veux devenir : {status}</li>
+	            <li>Je suis en : {status}</li>
 	            <li>Je suis basé à : <i class="fas fa-thumbtack"></i>&nbsp;&nbsp;{location}</li>
 	            <li>Je m'interesse à : {intrests}</li>
 				<li>Membre depuis : {createdAt}</li>

@@ -10,7 +10,7 @@ const CreateProfile = ({ createProfile, history }) => {
         status: '',
         intrests: '',
         bio: '',
-        username: ''
+      shwonName: ''
     })
     
     const {
@@ -18,7 +18,7 @@ const CreateProfile = ({ createProfile, history }) => {
         status,
         intrests,
         bio,
-        username
+      shwonName
     } = formData
 
     const onChange = e => setFormData({
@@ -55,7 +55,7 @@ const CreateProfile = ({ createProfile, history }) => {
           </div>
           <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
           <div className="form-group">
-            <input type="text" placeholder="Github Username" name="username" value={username} onChange={e => onChange(e)}/>
+            <input type="text" placeholder="shwonName" name="shwonName" value={shwonName} onChange={e => onChange(e)}/>
             <small className="form-text">Optional</small>
           </div>
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>
