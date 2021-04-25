@@ -3,7 +3,13 @@ GET http://localhost:5000/
 ###
 
 # PRINT USERS DATABASE
-GET http://localhost:5000/api/users/print
+GET http://localhost:5000/api/users/
+
+###
+
+# Get specefic user informations
+GET http://localhost:5000/api/users?username=anesboz
+
 
 ###
 # REGISTER A NEW USER
@@ -11,11 +17,11 @@ POST http://localhost:5000/api/users/register
 Content-Type: application/json
 
 {
-    "email": "t@gmail.com",
-    "firstName": "chems eddine",
-    "lastName": "aa",
-    "password": "12345677",
-    "username": "aanes"
+    "email": "kamal@gmail.com",
+    "username": "kamal",
+    "firstName": "Kamal",
+    "lastName": "BOUAKAZ",
+    "password": "1234567"
 }
 
 ###
@@ -25,7 +31,7 @@ POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-    "username": "amine",
+    "username": "kamal",
     "password": "1234567"
 }
 

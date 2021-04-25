@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    username : {
+    username: {
         type: String
-    }, 
-    avatar : {
+    },
+    avatar: {
         type: String
     }
-}, {timestamps: true})
+}, { timestamps: true })
 
 module.exports = User = mongoose.model('User', userSchema)

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const config = require('config') 
+const config = require('config')
 const db = config.get('mongoURI')
 /*
 config est un module/dossier locale qui contient un fichier default.json 
@@ -12,24 +12,23 @@ default.json
 /*
 la base de donnees mongodb contient les posts et les commentaires
 c est une base de donne NoSQL? on parle donc de collection 
-
 */
 
 const connect_db = async () => {
-    try{
-        await mongoose.connect(db, 
-            { 
-            useNewUrlParser: true, 
-            useUnifiedTopology: true, 
-            useCreateIndex: true,
-            useFindAndModify: false
-        })
+    try {
+        await mongoose.connect(db,
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useCreateIndex: true,
+                useFindAndModify: false
+            })
         console.log('MongoDB Connected')
-    } catch (e){
-        console.error(e.message); 
+    } catch (e) {
+        console.error(e.message);
         // exit process with failure
         process.exit(1);
     }
 };
 
-module.exports = connect_db; 
+module.exports = connect_db;
