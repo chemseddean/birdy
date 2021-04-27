@@ -1,15 +1,43 @@
-
-GET http://localhost:5000/
-###
-
-# PRINT USERS DATABASE
-GET http://localhost:5000/api/users/
+# ------- GET SPECEFIC USER by it username 
+GET http://localhost:5000/api/users/anesboz
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFuZXNib3oiLCJpYXQiOjE2MTk0NDMwNTQsImV4cCI6MTYxOTgwMzA1NH0.4AMMoza62kqj3aD5B_MrE4NJKh68I-x3BrhJEdsDkdA
 
 ###
+# ------- LOGIN 
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
 
-# Get specefic user informations
-GET http://localhost:5000/api/users?username=anesboz
+{
+    "username": "non",
+    "password": "stein.ashley"
+}
 
+### CREATE PROFILE
+POST http://localhost:5000/api/profils
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoibm9uIiwiZmlyc3ROYW1lIjoiU3RlaW4iLCJsYXN0TmFtZSI6IkFzaGxleSIsImVtYWlsIjoic3RlaW4uYXNobGV5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJC5NNC5oRWNtREh4T2xLaHdJQ1dGSE9oTFZUb1J3Ymx5V2Y3alVsVHIzQjJzanBGTm9lMXkuIiwiYXZhdGFyIjoiLy93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci81MTgyMWI1NDllYzM1ZTQ5Zjk4MWNjOTdhOTQzM2U1ZD9zPTIwMCZyPXBnJmQ9bW0ifSwiaWF0IjoxNjE5NTYyNzcyLCJleHAiOjE2MTk5MjI3NzJ9.QcGmxsJUcoRzZ8IhqWP40WdAqt2bQ1VAODOqHcA_xyU
+
+    {
+"location": " Westwood, Washington ",
+        "status": "l3",
+        "intrests": "in incididunt minim",
+        "bio": "officia consequat proident est proident ea culpa"
+    }
+
+### get all profiles
+GET http://localhost:5000/api/profils
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3pAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkbFVwYm9USVJRUVFQcHdxYXIzOFpJdXFjbXVIUU5Ic0dpa3ZFOVY2azllWXJJcWdLVURXaVMiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUxN2MwODQzNTIxZTIyNGVlOTIwOGVmYTY4MTQwMDhmP3M9MjAwJnI9cGcmZD1tbSJ9LCJpYXQiOjE2MTk1NDY4NjEsImV4cCI6MTYxOTkwNjg2MX0.PTWAalOjSCNUKWu2-q-FJHi5HtBfVxmRXgOFTNitz38
+
+### get my profil
+GET http://localhost:5000/api/profils/me
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3pAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkbFVwYm9USVJRUVFQcHdxYXIzOFpJdXFjbXVIUU5Ic0dpa3ZFOVY2azllWXJJcWdLVURXaVMiLCJhdmF0YXIiOiIvL3d3dy5ncmF2YXRhci5jb20vYXZhdGFyLzUxN2MwODQzNTIxZTIyNGVlOTIwOGVmYTY4MTQwMDhmP3M9MjAwJnI9cGcmZD1tbSJ9LCJpYXQiOjE2MTk1NDY4NjEsImV4cCI6MTYxOTkwNjg2MX0.PTWAalOjSCNUKWu2-q-FJHi5HtBfVxmRXgOFTNitz38
+
+
+###
+# ------- GET ALL USERS
+GET http://localhost:5000/api/users/all
+Content-Type: application/json
 
 ###
 # REGISTER A NEW USER
@@ -17,23 +45,18 @@ POST http://localhost:5000/api/users/register
 Content-Type: application/json
 
 {
-    "email": "kamal@gmail.com",
-    "username": "kamal",
-    "firstName": "Kamal",
-    "lastName": "BOUAKAZ",
-    "password": "1234567"
+    "firstName": "Anes",
+    "lastName": "BOUZOUAOUI",
+    "username": "anesboz",
+    "email": "anesboz@gmail.com",
+    "password": "BOUZOUAOUI"
 }
 
 ###
+# PRINT USERS DATABASE
+GET http://localhost:5000/api/users/
 
-# LOGIN 
-POST http://localhost:5000/api/users/login
-Content-Type: application/json
-
-{
-    "username": "kamal",
-    "password": "1234567"
-}
+###
 
 ###
 #Log out
@@ -52,14 +75,6 @@ Content-Type: application/json
 
 {
     "username": "chems01"
-}
-###
-#Search user
-POST http://localhost:5000/api/search/users
-Content-Type: application/json
-
-{
-    "username": "a"
 }
 
 ###

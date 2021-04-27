@@ -25,3 +25,10 @@ export const UPDATE_LIKES = 'UPDATE_LIKES'
 
 export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const ADD_COMMENT = 'ADD_COMMENT'
+
+
+export const GET_USERBYID = 'GET_USERBYID'
+export const GET_FRIENDS = 'GET_FRIENDS'
+export const ADD_FRIENDS = 'ADD_FRIENDS'
+export const BOBO = 'BOBO'
+

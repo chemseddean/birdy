@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { createProfile } from '../../actions/profile'
+import { createProfile } from '../actions/profile'
 import { Link, withRouter } from 'react-router-dom' //to pass history argument and allow to use it from action
 
 const CreateProfile = ({ createProfile, history }) => {
@@ -10,7 +10,7 @@ const CreateProfile = ({ createProfile, history }) => {
         status: '',
         intrests: '',
         bio: '',
-      shwonName: ''
+      username: ''
     })
     
     const {
@@ -18,7 +18,7 @@ const CreateProfile = ({ createProfile, history }) => {
         status,
         intrests,
         bio,
-      shwonName
+      username
     } = formData
 
     const onChange = e => setFormData({
@@ -38,16 +38,17 @@ const CreateProfile = ({ createProfile, history }) => {
         {/* <small>* = required field</small> */}
         <form className="form" onSubmit={e=>onSubmit(e)}>
           <div className="form-group">
+            <small className="form-text">Quel est ton niveau d'études &nbsp;&nbsp;</small>
             <select name="status" value={status} onChange={e => onChange(e)}>
-              <option value="0">* Select Professional Status</option>
-              <option value="Junior Developer">Junior Developer</option>
-              <option value="Senior Developer">Senior Developer</option>
-              <option value="Manager">Manager</option>
-              <option value="Student">Student</option>
-              <option value="Instructor">Instructor</option>
-              <option value="Other">Other</option>
+              <option value="0">Niveau ...</option>
+              <option value="Junior Developer">Lycée</option>
+              <option value="Bac +1">Bac +1</option>
+              <option value="Bac +2">Bac +2</option>
+              <option value="Bac +3">Bac +3</option>
+              <option value="Bac +4">Bac +4</option>
+              <option value="Bac +5">Bac +5</option>
+              <option value="Autre">Autre</option>
             </select>
-            <small className="form-text">Give us an idea of where you are at in your career</small>
           </div>
           <div className="doubleColumn">
             <input type="text" placeholder="Location" name="location" value={location} onChange={e => onChange(e)} />
@@ -55,7 +56,7 @@ const CreateProfile = ({ createProfile, history }) => {
           </div>
           <small className="form-text">Please use comma separated values (eg.HTML,CSS,JavaScript,PHP)</small>
           <div className="form-group">
-            <input type="text" placeholder="shwonName" name="shwonName" value={shwonName} onChange={e => onChange(e)}/>
+            {/* <input type="text" placeholder="username" name="username" value={username} onChange={e => onChange(e)}/> */}
             <small className="form-text">Optional</small>
           </div>
           <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>

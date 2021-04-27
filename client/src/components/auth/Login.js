@@ -24,13 +24,11 @@ const Login = ({ login, isAuthenticated }) => {
       e.preventDefault() //Because its a submit
       login(username, password)
   }
-
+  
   //Redirect if logged 
-
-  if(isAuthenticated){
+  if (isAuthenticated) {
     return <Redirect to="/dashboard" />
   }
-
   return (
     <section className="login">
       <h1 className="large text-primary">Log in</h1>

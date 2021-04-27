@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const config = require('config')
-const db = config.get('mongoURI')
+const mongoURI = config.get('mongoURI')
 /*
 config est un module/dossier locale qui contient un fichier default.json 
 contenant des constantes. const config = require('config') 
@@ -16,17 +16,16 @@ c est une base de donne NoSQL? on parle donc de collection
 
 const connect_db = async () => {
     try {
-        await mongoose.connect(db,
+        await mongoose.connect(mongoURI,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
                 useCreateIndex: true,
                 useFindAndModify: false
             })
-        console.log('MongoDB Connected')
+        console.log('Online MongoDB Connected')
     } catch (e) {
         console.error(e.message);
-        // exit process with failure
         process.exit(1);
     }
 };

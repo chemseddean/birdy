@@ -12,15 +12,17 @@ export default function(state = initialState, action) {
 
     switch(type){
         case GET_PROFILE:
+            localStorage.setItem('profile',payload)
             return {
                 ...state,
-                profile: payload, 
+                profile: payload,
                 loading: false
             }
         case GET_PROFILES:
+            localStorage.setItem('profiles', payload)
             return {
                 ...state,
-                profiles: payload, 
+                profiles: JSON.parse(payload), 
                 loading: false
             }
         case PROFILE_ERROR:
@@ -30,6 +32,7 @@ export default function(state = initialState, action) {
                 loading: false
             }
         case CLEAR_PROFILE:
+            localStorage.removeItem('profile', payload)
         return {
                 ...state,
                 profile: null,

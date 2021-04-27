@@ -1,13 +1,16 @@
-import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { online } from '../../actions/auth'
+import React, { useEffect } from 'react'
 
 const PrivateRoute = ({
     component: Component,
     auth: { isAuthenticated, loading },
     ...rest
-}) => (
+}) => {
+    useEffect(() => { online() }, [])
+    return (
     <Route
         {...rest}
         render={
@@ -17,6 +20,7 @@ const PrivateRoute = ({
         }
     />
 )
+}
 
 PrivateRoute.propTypes = {
     auth: PropTypes.object.isRequired,

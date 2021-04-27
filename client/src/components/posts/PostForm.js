@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addPost } from '../../actions/post'
@@ -6,7 +6,7 @@ import { addPost } from '../../actions/post'
 const PostForm = ({ addPost }) => {
     const [text, setText] = useState('')
     
-    return (
+    return (<Fragment>
         <div class="post-form">
         <div class="bg-primary p">
           <h3>Say Something...</h3>
@@ -28,7 +28,7 @@ const PostForm = ({ addPost }) => {
           <input type="submit" class="btn btn-dark my-1" value="Submit" />
         </form>
       </div>
-    )
+    </Fragment>)
 }
 
 PostForm.propTypes = {

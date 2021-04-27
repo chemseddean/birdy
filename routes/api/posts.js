@@ -20,13 +20,13 @@ async (req, res) => {
 
     try {
         // console.log("test")
-        const user = await User.findById(req.user.id).select('-password')
+        const user = await User.findById(req.userIDonMongo).select('-password')
         // console.log(user)
     const newPost = new Post({
         text: req.body.text,
         name: user.name,
         avatar: user.avatar, 
-        user: req.user.id
+        user: req.userIDonMongo
     })
     const post = await newPost.save()
     res.json(post)
@@ -81,7 +81,7 @@ router.delete('/:id', auth, async (req, res) => {
         const post = await Post.findById(req.params.id)
        
         //Check if user owns the post
-        if(post.user.toString() !== req.user.id){
+        if(post.user.toString() !== req.userIDonMongo){
             return res.status(401).json({msg: "User not authorized"})
         }
 
@@ -105,12 +105,12 @@ router.put('/like/:id', auth, async (req, res) => {
         const post = await Post.findById(req.params.id)
 
         //Check if the post has already been liked by user
-        if(post.likes.filter(like => like.user.toString() === req.user.id).length > 0){
+        if(post.likes.filter(like => like.user.toString() === req.userIDonMongo).length > 0){
             return res.status(400).json({msg : "Post already liked"})
 
         }
 
-        post.likes.unshift({user: req.user.id})
+        post.likes.unshift({user: req.userIDonMongo})
 
         await post.save()
         res.json(post.likes)
@@ -131,13 +131,13 @@ router.put('/unlike/:id', auth, async (req, res) => {
         const post = await Post.findById(req.params.id)
 
         //Check if the post has already been liked by user
-        if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
+        if(post.likes.filter(like => like.user.toString() === req.userIDonMongo).length === 0){
             return res.status(400).json({msg : "Post has not yet been liked"})
 
         }
 
         // Get remove index
-        const removeIndex = post.likes.map(like => like.user.toString()).indexOf(req.user.id)
+        const removeIndex = post.likes.map(like => like.user.toString()).indexOf(req.userIDonMongo)
 
         post.likes.splice(removeIndex, 1)
         await post.save()
@@ -163,14 +163,14 @@ async (req, res) => {
     }
 
     try {
-        const user = await User.findById(req.user.id).select('-password')
+        const user = await User.findById(req.userIDonMongo).select('-password')
         const post = await Post.findById(req.params.id)
     
         const newComment = {
         text: req.body.text,
         name: user.name,
         avatar: user.avatar, 
-        user: req.user.id
+        user: req.userIDonMongo
     }
 
     post.comments.unshift(newComment)
@@ -198,12 +198,12 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
         }
 
         //Make sur user is the owner of the comment
-        if(comment.user.toString() !== req.user.id){
+        if(comment.user.toString() !== req.userIDonMongo){
             return res.status(401).json({msg : "User is not authorized"})
         }
 
         // Get remove index
-        const removeIndex = post.comments.map(comment => comment.user.toString()).indexOf(req.user.id)
+        const removeIndex = post.comments.map(comment => comment.user.toString()).indexOf(req.userIDonMongo)
 
         post.comments.splice(removeIndex, 1)
         await post.save()

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../../models/User')
+const User = require('../models/User')
 
 // @route   GET api/search/users
 // @desc    Search users
