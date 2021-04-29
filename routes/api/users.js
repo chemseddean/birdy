@@ -72,7 +72,7 @@ router.post('/register',
         
         const payload = {
           user: user,
-          // userIDonMongo: theUserOnMongo.id
+          userIDonMongo: theUserOnMongo.id
         }
         const userAsString = JSON.stringify(user)
         // const userIDonMongoAsString = ""+theUserOnMongo.id
@@ -121,7 +121,7 @@ router.post('/login',
       theUserOnMongo = await User.findOne({username})
       const payload = {
         user: user,
-        // userIDonMongo: theUserOnMongo.id
+        userIDonMongo: theUserOnMongo.id
       }			
       const userAsString = JSON.stringify(user)
       // const userIDonMongoAsString = ""+theUserOnMongo.id

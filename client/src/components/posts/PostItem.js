@@ -10,17 +10,18 @@ const PostItem = ({ auth,
      addLike, 
      removeLike,
      deletePost,
-    post: { _id, text, user, likes, comments, date},
+    post: { _id, text, user, name, likes, comments, date},
     showActions
   }) => {
     return (
         <div className="post bg-white p-1 my-1">
           <div>
-              <img
-                className="round-img"
-                alt=""
-              />
-              <h4>{user}</h4>
+            <img
+              className="round-img"
+              src="https://arboresens.fr/assets/images/charte-SU-2.jpg"
+              alt=""
+            />
+              <h4>{name}</h4>
           </div>
           <div>
             <p className="my-1">
@@ -53,7 +54,7 @@ const PostItem = ({ auth,
                 Comments {comments.length> 0 && (<span className='comment-count'> {comments.length} </span>)}
             </Link>
 
-                {!auth.loading && user === auth.user._id && (
+            {!auth.loading && name === auth.user.username && (
                     <button   
                     onClick={e=>deletePost(_id)}   
                     type="button"

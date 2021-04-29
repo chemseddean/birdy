@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
-  // userID: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'user'
-  // },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
   location: {
     type: String
   },

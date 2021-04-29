@@ -12,12 +12,6 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
   const [count, setCount] = useState(null);
   const [listing, setList] = useState(profiles)
   useEffect(() => setList(profiles), [profiles])
-  
-  // const [aFriend, setaFriend] = useState(aFriend_)
-  // useEffect(() => setaFriend(aFriend_), [aFriend_])
-  // console.log('aFriend_')
-  // console.log(aFriend_)
-  // alert(listing)
 
   if (loading) 
     return <h1 className="large text-primary">Profiles</h1>
@@ -30,11 +24,17 @@ const Profiles = ({ getProfiles, profile: { profiles, loading }}) => {
           <p className="lead"> Clicker sur un profil pour avoir plus d'informations</p>
           :
           (<ul>
+              <img
+                style={{ height:"8rem"}}
+                className="round-img"
+                src="https://arboresens.fr/assets/images/charte-SU-2.jpg"
+                alt=""
+              />
               <h2>{count.username}</h2>
               <button className="btn btn-primary my-1" onClick={getUserById(count.username)}  >add friend</button>
             <ul>
                 {console.log()}
-                <li><span>Nom :</span> {aFriend()}</li>
+                {/* <li><span>Nom :</span> {}</li> */}
                 <li><span>Je suis en : </span>{count.status}</li>
                 <li><span>Je suis basé à : <i className="fas fa-thumbtack"></i></span> &nbsp;&nbsp;{count.location}</li>
                 <li><span>Je m'interesse à :</span> {count.intrests}</li>

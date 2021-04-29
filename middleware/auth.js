@@ -12,6 +12,7 @@ module.exports = function(req, res, next){
     try {
         //console.log(req.user)
         const decoded = jwt.verify(token, config.get('mySecretKey'))
+        // console.log(decoded);
         req.user = decoded.user; 
         req.userIDonMongo = decoded.userIDonMongo;
         next()

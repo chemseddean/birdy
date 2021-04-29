@@ -12,25 +12,25 @@ const CommentItem = ({
     auth,
     deleteComment
 }) => (
-<div class="post bg-white p-1 my-1">
+<div className="post bg-white p-1 my-1">
         <div>
             <img
-              class="round-img"
-              src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200"
+              className="round-img"
+                src="https://arboresens.fr/assets/images/charte-SU-2.jpg"
               alt=""
             />
-            <h4>{user}</h4>
+            <h4>{name}</h4>
         </div>
-        <p class="my-1">{text}</p>
+        <p className="my-1">{text}</p>
         <p className="post-date">
                 Posted on 
                 <Moment format="DD/MM/YYYY">
                     {date}
                 </Moment>
         </p>
-        {!auth.loading && user === auth.user._id && (
+        {!auth.loading && name === auth.user.username && false && (
             <button   
-            onClick={e=>removeComment(postId, _id)}   
+            onClick={e=> removeComment(postId, _id)}   
             type="button"
             className="btn btn-danger">
             <i className="fas fa-times"></i>
@@ -41,7 +41,7 @@ const CommentItem = ({
 )
 
 CommentItem.propTypes = {
-    postId: PropTypes.number.isRequired,
+    postId: PropTypes.string.isRequired,
     comment: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     removeComment: PropTypes.func.isRequired,

@@ -1,11 +1,12 @@
 import axios from 'axios'
+import { csonParser } from 'config/parser'
 import { setAlert } from './alert'
 
 import {
     GET_FRIENDS,
     ADD_FRIENDS,
     GET_USERBYID,
-    BOBO
+    ERROR_FRIENDS
 } from './types'
 
 // export const getPost = id => async dispatch => {
@@ -37,19 +38,20 @@ export const getUserById = id => async dispatch => {
 }
 
 export const getFriends = () => async dispatch => {
-    // try {
-    //     const res = await axios.get('/api/friends')
+    try {
+        const res = await axios.get('/api/friends/myfriends')
 
-    //     dispatch({
-    //         type: GET_FRIENDS,
-    //         payload: res.data
-    //     })
-    // } catch (error) {
-    //     dispatch({
-    //         type: POST_ERROR,
-    //         //payload: { msg: error.response.statusText, status: error.response.status}
-    //     })
-    // }
+        dispatch({
+            type: GET_FRIENDS,
+            payload: res.data
+        })
+    } catch (error) {
+        // dispatch({
+        //     type: POST_ERROR,
+        //     //payload: { msg: error.response.statusText, status: error.response.status}
+        // })
+        console.error(error.message)
+    }
 }
 
 

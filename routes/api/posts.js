@@ -13,19 +13,17 @@ router.post('/', [auth, [
     check('text', 'Text is required').notEmpty(), 
 ]],
 async (req, res) => {
+    // return console.log(req);
     const errors = validationResult(req)
     if(!errors.isEmpty()){
         return res.status(400).json({erros: errors.array()})
     }
 
     try {
-        // console.log("test")
-        const user = await User.findById(req.userIDonMongo).select('-password')
-        // console.log(user)
     const newPost = new Post({
         text: req.body.text,
-        name: user.name,
-        avatar: user.avatar, 
+        name: req.user.username,
+        avatar: req.user.avatar,
         user: req.userIDonMongo
     })
     const post = await newPost.save()
@@ -163,12 +161,12 @@ async (req, res) => {
     }
 
     try {
-        const user = await User.findById(req.userIDonMongo).select('-password')
+        const user = req.user //await User.findById(req.userIDonMongo).select('-password')
         const post = await Post.findById(req.params.id)
     
         const newComment = {
         text: req.body.text,
-        name: user.name,
+        name: user.username,
         avatar: user.avatar, 
         user: req.userIDonMongo
     }

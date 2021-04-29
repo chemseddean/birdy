@@ -9,8 +9,8 @@ POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
 {
-    "username": "non",
-    "password": "stein.ashley"
+    "username": "anesboz",
+    "password": "BOUZOUAOUI"
 }
 
 ### CREATE PROFILE
@@ -83,3 +83,18 @@ GET http://localhost:5000/api/profils/
 
 #delete users
 DELETE http://localhost:5000/api/profils/
+
+
+# -------------------------------------------
+### get friends tables
+GET http://localhost:5000/api/friends
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3V6b3Vhb3VpQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJHEyWXUzeERsRXh6WHJab1NrNllxQ2VqUzdsbExVMm9MZ2xaWkkzZ3hwdmg3cXgwS0RoQ0VtIiwiYXZhdGFyIjoiLy93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci8zNzczYTJiZDg0YWIxMjNjNWNkOTA5YmExNjczMTUxMz9zPTIwMCZyPXBnJmQ9bW0ifSwiaWF0IjoxNjE5NjgxNDkwLCJleHAiOjE2MjAwNDE0OTB9.07NPpv4y_CKLSu1nPxh9Pe2sO6GnudCAu9n2ABhAbb4
+
+
+### adding chemsso a new friend of anesboz
+POST  http://localhost:5000/api/friends/add/hippie
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3V6b3Vhb3VpQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJHEyWXUzeERsRXh6WHJab1NrNllxQ2VqUzdsbExVMm9MZ2xaWkkzZ3hwdmg3cXgwS0RoQ0VtIiwiYXZhdGFyIjoiLy93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci8zNzczYTJiZDg0YWIxMjNjNWNkOTA5YmExNjczMTUxMz9zPTIwMCZyPXBnJmQ9bW0ifSwiaWF0IjoxNjE5NjgxNDkwLCJleHAiOjE2MjAwNDE0OTB9.07NPpv4y_CKLSu1nPxh9Pe2sO6GnudCAu9n2ABhAbb4
+
+### getting all friends of anesboz
+GET  http://localhost:5000/api/friends/myfriends
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3V6b3Vhb3VpQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJHEyWXUzeERsRXh6WHJab1NrNllxQ2VqUzdsbExVMm9MZ2xaWkkzZ3hwdmg3cXgwS0RoQ0VtIiwiYXZhdGFyIjoiLy93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci8zNzczYTJiZDg0YWIxMjNjNWNkOTA5YmExNjczMTUxMz9zPTIwMCZyPXBnJmQ9bW0ifSwiaWF0IjoxNjE5NjgxNDkwLCJleHAiOjE2MjAwNDE0OTB9.07NPpv4y_CKLSu1nPxh9Pe2sO6GnudCAu9n2ABhAbb4
