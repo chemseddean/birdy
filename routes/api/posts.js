@@ -27,7 +27,7 @@ async (req, res) => {
         user: req.userIDonMongo
     })
     const post = await newPost.save()
-    res.json(post)
+    res.status(201).json(post)
 
     } catch (error) {
         console.error(error.message)

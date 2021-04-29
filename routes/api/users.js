@@ -161,7 +161,7 @@ router.get('/all', (req, res) => {
 
 // ------- PRIVATE authentification requise 
 
-// get all users
+// get a specefic user
 router.get('/:username', auth, (req, res) => {
   const q = `select * from users where username = '${req.params.username}'`
   db.get(q, [], (err, ok) => {

@@ -9,21 +9,6 @@ import {
     ERROR_FRIENDS
 } from './types'
 
-// export const getPost = id => async dispatch => {
-//     try {
-//         const res = await axios.get(`/api/posts/${id}`)
-
-//         dispatch({
-//             type: GET_POST,
-//             payload: res.data
-//         })
-//     } catch (error) {
-//         dispatch({
-//             type: POST_ERROR,
-//             //payload: { msg: error.response.statusText, status: error.response.status}
-//         })
-//     }
-// }
 
 export const getUserById = id => async dispatch => {
     // console.log("hhhhhhhhhhhhhhh")

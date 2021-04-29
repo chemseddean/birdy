@@ -5,21 +5,6 @@ const auth = require('../../middleware/auth');
 const db = creatLocalSQLDB()
 
 
-
-router.get('/', auth, (req, res)=>{
-    const q = `select * from friends`
-    console.log(req.user);
-    // console.log('dans la requette de tous les amis');
-    db.get(q,(err,ok)=>{
-        if(err)
-            return console.log('probleme getting friends list');
-        res.json(ok)
-    })
-})
-
-
-
-
 router.post('/add/:friend',auth, (req,res)=>{
     const username1 = req.user.username
     // console.log(req.user);
@@ -61,6 +46,16 @@ router.get('/myfriends', auth, async (req, res) => {
 
 
 
+router.get('/', auth, (req, res) => {
+    const q = `select * from friends`
+    console.log(req.user);
+    // console.log('dans la requette de tous les amis');
+    db.get(q, (err, ok) => {
+        if (err)
+            return console.log('probleme getting friends list');
+        res.json(ok)
+    })
+})
 
 
 module.exports = router

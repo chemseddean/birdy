@@ -1,10 +1,4 @@
-# ------- GET SPECEFIC USER by it username 
-GET http://localhost:5000/api/users/anesboz
-Content-Type: application/json
-x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFuZXNib3oiLCJpYXQiOjE2MTk0NDMwNTQsImV4cCI6MTYxOTgwMzA1NH0.4AMMoza62kqj3aD5B_MrE4NJKh68I-x3BrhJEdsDkdA
-
-###
-# ------- LOGIN 
+###------- 1. LOGIN 
 POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
@@ -12,6 +6,26 @@ Content-Type: application/json
     "username": "anesboz",
     "password": "BOUZOUAOUI"
 }
+
+
+###------- 2. create post  
+POST http://localhost:5000/api/posts/
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYW5lc2JveiIsImZpcnN0TmFtZSI6IkFuZXMiLCJsYXN0TmFtZSI6IkJPVVpPVUFPVUkiLCJlbWFpbCI6ImFuZXNib3V6b3Vhb3VpQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJHEyWXUzeERsRXh6WHJab1NrNllxQ2VqUzdsbExVMm9MZ2xaWkkzZ3hwdmg3cXgwS0RoQ0VtIiwiYXZhdGFyIjoiLy93d3cuZ3JhdmF0YXIuY29tL2F2YXRhci8zNzczYTJiZDg0YWIxMjNjNWNkOTA5YmExNjczMTUxMz9zPTIwMCZyPXBnJmQ9bW0ifSwidXNlcklEb25Nb25nbyI6IjYwODg5MTY4Y2Q5YjBhNTQyNjBjYzU2NyIsImlhdCI6MTYxOTY5ODI5NSwiZXhwIjoxNjIwMDU4Mjk1fQ.9y2hEEor1XG_VQUeWlRMi5MURkLwRwJSlK-x3RyNZq0
+
+{
+    "text":"lorem ipsum"
+}
+
+###
+
+
+# ------- GET SPECEFIC USER by it username 
+GET http://localhost:5000/api/users/anesboz
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFuZXNib3oiLCJpYXQiOjE2MTk0NDMwNTQsImV4cCI6MTYxOTgwMzA1NH0.4AMMoza62kqj3aD5B_MrE4NJKh68I-x3BrhJEdsDkdA
+
+
 
 ### CREATE PROFILE
 POST http://localhost:5000/api/profils
