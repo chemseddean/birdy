@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://chemseddean:NGyaVKS7bYzpLEx@cluster0.vyoad.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",    
-    "mySecretKey": "mysecrettoken"
+    "mongoURI": "",    
+    "mySecretKey": ""
 }
